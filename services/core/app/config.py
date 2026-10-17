@@ -35,6 +35,8 @@ DEFAULT_OPEN_DOMAINS = ["go.kr", "korea.kr", "kosis.kr"]
 @dataclass
 class Settings:
     data_dir: str = field(default_factory=lambda: os.environ.get("DATA_DIR", "./data"))
+    # the data directory is wiped on restart (a free host without a disk): the screens say so
+    ephemeral: bool = field(default_factory=lambda: _bool("EPHEMERAL_STORAGE", False))
     web_dist: str = field(default_factory=lambda: os.environ.get("WEB_DIST", ""))
     seed_demo: bool = field(default_factory=lambda: _bool("SEED_DEMO", True))
     # the public demo workspace starts over at every boot, so visitors always see the worked case

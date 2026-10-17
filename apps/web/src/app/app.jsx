@@ -159,12 +159,14 @@ function CaseWorkspace({ caseId }) {
 function Banner({ me }) {
   if (!me) return null;
   if (me.demo_only) {
-    return <p className="fiction">시연 공간입니다. 가상의 청람시 자료로 모든 화면을 써 볼 수 있습니다. 편집국 공간과 분리되어 있어 실제 기획은 보이지 않으며, 실제 검색과 모델 판정은 쓰지 않습니다.</p>;
+    return <p className="fiction">시연 공간입니다. 가상의 청람시 자료로 모든 화면을 써 볼 수 있습니다. 편집국 공간과 분리되어 있어 실제 기획은 보이지 않으며, 실제 검색과 모델 판정은 쓰지 않습니다. 시연 공간은 서버가 다시 시작될 때마다 처음 상태로 돌아갑니다.</p>;
   }
-  if (!me.live_model) {
-    return <p className="note tone-warn">서버에 OpenAI 키가 설정되지 않아 실제 공개 자료 검색과 판정이 꺼져 있습니다. 제목이 '청람시 도서관 계약 검토'인 시연 기획으로 흐름만 확인할 수 있습니다.</p>;
-  }
-  return null;
+  return (
+    <>
+      {!me.live_model ? <p className="note tone-warn">서버에 OpenAI 키가 설정되지 않아 실제 공개 자료 검색과 판정이 꺼져 있습니다. 제목이 '청람시 도서관 계약 검토'인 시연 기획으로 흐름만 확인할 수 있습니다.</p> : null}
+      {me.ephemeral ? <p className="note tone-info">지금 서버는 저장 공간이 없는 무료 플랜이라, 다시 시작되면(15분 동안 접속이 없을 때 포함) 기획·초대 계정·보고서가 지워집니다. 남겨야 할 결과는 보고서 파일로 받아 두세요. 관리자 계정은 서버가 켜질 때 다시 만들어집니다.</p> : null}
+    </>
+  );
 }
 
 export function App() {

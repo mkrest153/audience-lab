@@ -4,7 +4,7 @@
 초안 문장마다 근거를 붙이고, 출처끼리 다른 설명(상충)과 아직 모르는 것(공백)을 취재 과제로 넘기고,
 새로 확보한 자료로 다시 검토해 무엇이 왜 바뀌었는지 보여 줍니다. 게재와 편성 판단은 사람이 합니다.
 
-- 서비스: Render 한 서비스 (FastAPI + SQLite, 웹 화면을 함께 서빙)
+- 서비스: Render 한 서비스 (FastAPI + SQLite, 웹 화면을 함께 서빙). 지금은 무료 플랜이라 다시 시작하면 기록이 지워집니다 (`OPERATIONS.md`)
 - 소개 홈페이지: `homepage/` (정적 페이지, Vercel)
 
 ## 하지 않는 것
@@ -73,7 +73,8 @@ pytest -q
 | `OPENAI_SEARCH_MODEL` | `OPENAI_MODEL` | 공개 자료 검색 모델 |
 | `OPENAI_REASONING_EFFORT` | `low` | 추론 강도 (모델이 받지 않으면 자동으로 뺌) |
 | `ADMIN_EMAIL` / `ADMIN_PASSWORD` | (없음) | 첫 관리자 계정. 이미 있으면 다시 만들지 않음 |
-| `DATA_DIR` | `./data` | SQLite 위치. Render에서는 디스크 `/var/data` |
+| `DATA_DIR` | `./data` | SQLite 위치. Render에서는 `/var/data` (유료 플랜이면 디스크) |
+| `EPHEMERAL_STORAGE` | `0` | `1`이면 다시 시작할 때 기록이 지워진다는 안내를 화면에 띄움 |
 | `DAILY_MODEL_CALL_LIMIT` | `600` | 하루 모델 호출 한도 (0이면 제한 없음) |
 | `DAILY_SEARCH_CALL_LIMIT` | `150` | 하루 검색 호출 한도 |
 | `OPEN_DOMAINS` | `go.kr,korea.kr,kosis.kr` | 본문을 저장할 수 있는 공개 도메인 |

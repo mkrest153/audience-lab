@@ -671,7 +671,8 @@ class HandlersMixin:
         a = ctx["actor"]
         return {"data": {"actor_id": a["actor_id"], "name": a["name"], "role": a["role"], "workspace_id": self.WS,
                          "email": a.get("email"), "demo_only": bool(a.get("demo_only")), "server_time": self.now_iso(),
-                         "live_model": bool(self.providers.get("openai") and self.providers["openai"].configured())}}
+                         "live_model": bool(self.providers.get("openai") and self.providers["openai"].configured()),
+                         "ephemeral": bool(getattr(self.settings, "ephemeral", False))}}
 
     def h_listWorkspaceMembers(self, ctx):
         return {"data": {"items": [{"actor_id": m["actor_id"], "name": m["name"], "role": m["role"]} for m in self.members() if m["active"]]}}
