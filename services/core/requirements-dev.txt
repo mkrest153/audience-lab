@@ -1,0 +1,4 @@
+# tests: the closed schemas of the specification pack are checked with jsonschema
+-r requirements.txt
+pytest==9.1.1
+jsonschema==4.26.0

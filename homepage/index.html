@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Audience Lab · 편집국 기획 검토</title>
+<meta name="description" content="기획과 초안의 문장을 정부·지자체 공개 자료와 대조해 근거 있음·상충·반박됨·근거 부족으로 나누고, 아직 모르는 것을 취재 과제로 넘기는 편집국 검토 도구. 게재 판단은 사람이 합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Audience Lab · 편집국 기획 검토">
+<meta property="og:description" content="기사로 쓰기 전에, 문장마다 근거를 붙입니다. 공개 자료와 대조하고, 모르는 것은 취재 과제로.">
+<meta property="og:image" content="/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap">
+<style>
+:root {
+  --paper: #f8f6f0; --sheet: #fffefa; --sunken: #efece3; --ink: #141e29; --ink-2: #3f4b57; --ink-3: #66717c;
+  --rule: #d8d2c3; --rule-2: #b9b2a1;
+  --accent: #0d5873; --accent-ink: #ffffff; --accent-soft: #dde9ee; --accent-line: #7aabc0;
+  --ok: #15603a; --ok-bg: #e1f1e7; --ok-line: #8ac2a0;
+  --warn: #7a4500; --warn-bg: #f8ead0; --warn-line: #d9ae5f;
+  --bad: #a3261e; --bad-bg: #f9e1dd; --bad-line: #dfa09a;
+  --mute: #394756; --mute-bg: #e9ecef; --mute-line: #97a4b2;
+  --mark: #ffe98f; --mark-ink: #141e29; --proof: #c2281d;
+  --shadow: 0 1px 0 rgb(20 30 41 / 0.04), 0 10px 30px rgb(20 30 41 / 0.08);
+  --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --serif: "Noto Serif KR", "AppleMyungjo", "Batang", "Noto Serif CJK KR", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1418; --sheet: #161d23; --sunken: #1d252c; --ink: #e8edf1; --ink-2: #b8c2cb; --ink-3: #8e9aa5;
+    --rule: #2c3640; --rule-2: #46525e;
+    --accent: #79c2dd; --accent-ink: #06202b; --accent-soft: #163541; --accent-line: #2f6a7f;
+    --ok: #8bd8ab; --ok-bg: #132e1f; --ok-line: #2f6a46;
+    --warn: #f1c46e; --warn-bg: #36280c; --warn-line: #79591c;
+    --bad: #f5a097; --bad-bg: #3a1714; --bad-line: #823f39;
+    --mute: #bdc8d3; --mute-bg: #212a33; --mute-line: #566373;
+    --mark: #6a5600; --mark-ink: #fff6cf; --proof: #ff7d70;
+    --shadow: 0 1px 0 rgb(0 0 0 / 0.3), 0 12px 30px rgb(0 0 0 / 0.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1418; --sheet: #161d23; --sunken: #1d252c; --ink: #e8edf1; --ink-2: #b8c2cb; --ink-3: #8e9aa5;
+  --rule: #2c3640; --rule-2: #46525e;
+  --accent: #79c2dd; --accent-ink: #06202b; --accent-soft: #163541; --accent-line: #2f6a7f;
+  --ok: #8bd8ab; --ok-bg: #132e1f; --ok-line: #2f6a46;
+  --warn: #f1c46e; --warn-bg: #36280c; --warn-line: #79591c;
+  --bad: #f5a097; --bad-bg: #3a1714; --bad-line: #823f39;
+  --mute: #bdc8d3; --mute-bg: #212a33; --mute-line: #566373;
+  --mark: #6a5600; --mark-ink: #fff6cf; --proof: #ff7d70;
+  --shadow: 0 1px 0 rgb(0 0 0 / 0.3), 0 12px 30px rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+code, .mono { font-family: var(--mono); font-size: 0.8125em; font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 74rem; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+
+/* header */
+.hdr { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: saturate(1.2) blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.hdr.scrolled { border-bottom-color: var(--rule); }
+.hdr-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: baseline; gap: 10px; color: var(--ink); text-decoration: none; white-space: nowrap; min-width: 0; }
+.brand-n { font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.01em; }
+.brand-s { font-size: 0.8125rem; color: var(--ink-3); }
+.nav { display: flex; align-items: center; gap: 4px 22px; font-size: 0.9375rem; }
+.nav a:not(.btn) { color: var(--ink-2); text-decoration: none; }
+.nav a:not(.btn):hover { color: var(--ink); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 560px) { .brand-s, .nav .btn:not(.btn-primary) { display: none; } }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 18px; border-radius: var(--r); border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink); font: inherit; font-weight: 600; font-size: 0.9375rem; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn:hover { border-color: var(--accent); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-s { min-height: 36px; padding: 6px 14px; font-size: 0.875rem; }
+.btn[disabled] { opacity: .6; cursor: progress; }
+
+/* hero */
+.hero { padding-block: clamp(36px, 7vw, 84px) clamp(40px, 7vw, 88px); }
+.hero-g { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+@media (max-width: 960px) { .hero-g { grid-template-columns: minmax(0, 1fr); } }
+.kicker { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; gap: 10px; align-items: center; }
+.kicker::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+.hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.125rem, 5.2vw, 3.5rem); line-height: 1.22; letter-spacing: -0.02em; text-wrap: balance; }
+.hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, var(--mark) 62%); color: inherit; padding-inline: 2px; }
+.lede { margin-top: 22px; font-size: clamp(1.0313rem, 1.6vw, 1.125rem); color: var(--ink-2); max-width: 36em; }
+.cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+.cta-note { margin-top: 14px; font-size: 0.8125rem; color: var(--ink-3); }
+
+/* the ledger card in the hero */
+.ledger { background: var(--sheet); border: 1px solid var(--rule-2); border-top: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); font-size: 0.875rem; line-height: 1.6; min-width: 0; }
+.ledger-h { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--rule); font-size: 0.75rem; color: var(--ink-3); }
+.ledger-h b { color: var(--ink-2); font-weight: 600; }
+.ledger-b { display: grid; gap: 12px; padding: 16px; }
+.ms { font-family: var(--serif); font-size: 1.125rem; line-height: 1.8; padding: 10px 14px; background: var(--paper); border-left: 3px solid var(--bad); }
+.ms-n { display: block; font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3); margin-bottom: 2px; }
+.strike { color: var(--proof); text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--proof); }
+.ins { position: relative; display: inline-block; font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--proof); vertical-align: super; line-height: 1; margin-left: 2px; white-space: nowrap; }
+.st { display: inline-flex; align-items: center; gap: 0.4em; padding: 1px 8px; border: 1px solid var(--tone-line); background: var(--tone-bg); color: var(--tone); border-radius: 3px; font-size: 0.8125rem; font-weight: 600; white-space: nowrap; }
+.st code { color: inherit; opacity: .8; font-size: 0.625rem; font-weight: 500; letter-spacing: .02em; }
+.st-ok { --tone: var(--ok); --tone-bg: var(--ok-bg); --tone-line: var(--ok-line); }
+.st-warn { --tone: var(--warn); --tone-bg: var(--warn-bg); --tone-line: var(--warn-line); }
+.st-bad { --tone: var(--bad); --tone-bg: var(--bad-bg); --tone-line: var(--bad-line); }
+.st-mute { --tone: var(--mute); --tone-bg: var(--mute-bg); --tone-line: var(--mute-line); border-style: dashed; }
+.st-plain { --tone: var(--ink-2); --tone-bg: transparent; --tone-line: var(--rule-2); }
+.mk { width: .55em; height: .55em; background: currentColor; flex: none; }
+.mk-dot { border-radius: 50%; }
+.mk-ring { background: transparent; border: 1.5px solid currentColor; border-radius: 50%; }
+.mk-diamond { transform: rotate(45deg) scale(.85); }
+.mk-cross { clip-path: polygon(18% 0, 50% 32%, 82% 0, 100% 18%, 68% 50%, 100% 82%, 82% 100%, 50% 68%, 18% 100%, 0 82%, 32% 50%, 0 18%); }
+.mk-dash { height: 2px; }
+.v-row { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.v-why { color: var(--ink-2); font-size: 0.8125rem; }
+.v-rec { font-weight: 600; }
+.v-rec span { font-weight: 500; color: var(--ink-3); font-size: 0.75rem; margin-right: 6px; }
+.calc { background: var(--sunken); border: 1px solid var(--rule); border-radius: 3px; padding: 9px 12px; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.calc-h { font-size: 0.6875rem; font-weight: 700; color: var(--ink-3); letter-spacing: .02em; margin-bottom: 3px; }
+.calc b { color: var(--ink); }
+.cl { display: grid; grid-template-columns: 3.4em minmax(0, 1fr); gap: 8px; padding: 5px 10px; border-left: 3px solid var(--bad-line); background: var(--bad-bg); font-size: 0.8125rem; }
+.cl-l { font-weight: 700; color: var(--bad); font-size: 0.75rem; }
+.ledger-f { padding: 9px 16px; border-top: 1px dashed var(--rule-2); font-size: 0.75rem; color: var(--ink-3); }
+
+/* sections */
+section { scroll-margin-top: 72px; }
+.sec { padding-block: clamp(56px, 9vw, 104px); border-top: 1px solid var(--rule); }
+.sec-h { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; max-width: 46rem; margin-bottom: clamp(28px, 4vw, 48px); }
+.sec-n { font-family: var(--mono); font-size: 0.75rem; letter-spacing: .08em; color: var(--accent); }
+.sec h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.625rem, 3.4vw, 2.375rem); line-height: 1.3; letter-spacing: -0.015em; text-wrap: balance; }
+.sec-p { color: var(--ink-2); font-size: 1.0625rem; max-width: 40em; }
+.h2-gap { margin-top: 14px; }
+
+/* problems */
+.probs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+@media (max-width: 860px) { .probs { grid-template-columns: minmax(0, 1fr); } }
+.prob { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); }
+.prob h3 { font-size: 1.125rem; line-height: 1.45; text-wrap: balance; }
+.prob p { color: var(--ink-2); font-size: 0.9688rem; }
+.prob .eg { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-3); }
+
+/* features */
+.feats { display: grid; gap: clamp(56px, 8vw, 96px); }
+.feat { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.feat.flip { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+.feat.flip .feat-t { order: 2; }
+@media (max-width: 900px) { .feat, .feat.flip { grid-template-columns: minmax(0, 1fr); } .feat.flip .feat-t { order: 0; } }
+.feat-t { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.feat-k { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); letter-spacing: .04em; }
+.feat h3 { font-family: var(--serif); font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1.35; letter-spacing: -0.01em; text-wrap: balance; }
+.feat p { color: var(--ink-2); }
+.feat ul { display: grid; gap: 7px; }
+.feat li { position: relative; padding-left: 1.2em; color: var(--ink-2); font-size: 0.9688rem; }
+.feat li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 1.5px; background: var(--accent); }
+.shot { min-width: 0; margin: 0; }
+.shot-f { background: var(--sheet); border: 1px solid var(--rule-2); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+.shot-bar { display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-bottom: 1px solid var(--rule); background: var(--sunken); }
+.shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-2); }
+.shot-bar span { margin-left: 8px; font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3); }
+.shot img { width: 100%; }
+.shot figcaption { margin-top: 10px; font-size: 0.8125rem; color: var(--ink-3); }
+.shot-narrow { max-width: 26rem; justify-self: center; width: 100%; }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: s; border-top: 1px solid var(--rule-2); }
+@media (max-width: 980px) { .steps { grid-template-columns: minmax(0, 1fr); border-top: 0; } }
+.step { position: relative; display: grid; gap: 8px; align-content: start; padding: 22px 18px 6px 0; }
+@media (max-width: 980px) { .step { padding: 0 0 26px 52px; border-left: 1px solid var(--rule-2); margin-left: 16px; } .step:last-child { border-left-color: transparent; } }
+.step::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: 0.8125rem; font-weight: 600; color: var(--accent); }
+@media (max-width: 980px) { .step::before { position: absolute; left: -17px; top: -2px; width: 34px; height: 34px; display: grid; place-items: center; background: var(--paper); border: 1px solid var(--rule-2); border-radius: 50%; } }
+.step h3 { font-size: 1.0625rem; line-height: 1.45; }
+.step p { color: var(--ink-2); font-size: 0.9063rem; }
+.step .who { font-size: 0.75rem; font-family: var(--mono); color: var(--ink-3); }
+
+/* principles */
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); border-radius: var(--r); overflow: hidden; }
+@media (max-width: 900px) { .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+.rule { background: var(--sheet); padding: 22px 20px; display: grid; gap: 8px; align-content: start; }
+.rule h3 { font-size: 1.0625rem; line-height: 1.45; }
+.rule p { color: var(--ink-2); font-size: 0.9375rem; }
+.rule code { color: var(--ink-3); font-size: 0.6875rem; letter-spacing: .02em; }
+
+/* audience */
+.whos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+@media (max-width: 860px) { .whos { grid-template-columns: minmax(0, 1fr); } }
+.who-c { display: grid; gap: 12px; align-content: start; padding: 22px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--r); }
+.who-c h3 { font-family: var(--serif); font-size: 1.25rem; }
+.who-c ul { display: grid; gap: 7px; }
+.who-c li { position: relative; padding-left: 1.2em; color: var(--ink-2); font-size: 0.9375rem; }
+.who-c li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; font-size: .85em; top: .1em; }
+
+/* demo */
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 860px) { .demo { grid-template-columns: minmax(0, 1fr); } }
+.accts { display: grid; gap: 8px; margin-block: 18px 22px; }
+.acct { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 14px; border: 1px dashed var(--rule-2); border-radius: var(--r); background: var(--sheet); }
+.acct b { font-weight: 600; }
+.acct span { font-size: 0.8125rem; color: var(--ink-3); }
+
+/* faq */
+.faq { display: grid; gap: 0; border-top: 1px solid var(--rule-2); max-width: 54rem; }
+.faq details { border-bottom: 1px solid var(--rule-2); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 600; font-size: 1.0313rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-weight: 500; }
+.faq details[open] summary::after { content: "−"; }
+.faq .a { padding: 0 0 20px; color: var(--ink-2); max-width: 44em; display: grid; gap: 8px; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 900px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+.form { display: grid; gap: 14px; padding: clamp(18px, 3vw, 28px); background: var(--sheet); border: 1px solid var(--rule-2); border-top: 3px solid var(--ink); border-radius: var(--r); }
+.form-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .form-2 { grid-template-columns: minmax(0, 1fr); } }
+.fld { display: grid; gap: 6px; min-width: 0; }
+.fld label { font-size: 0.875rem; font-weight: 600; }
+.fld label .req { color: var(--bad); font-size: 0.75rem; margin-left: 4px; }
+.fld input, .fld select, .fld textarea { width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid var(--rule-2); border-radius: var(--r); background: var(--paper); color: var(--ink); font: inherit; font-size: 0.9688rem; }
+.fld textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+.agree { display: flex; gap: 10px; align-items: flex-start; font-size: 0.875rem; color: var(--ink-2); }
+.agree input { margin-top: 4px; accent-color: var(--accent); flex: none; width: 16px; height: 16px; }
+.agree small { display: block; color: var(--ink-3); font-size: 0.8125rem; }
+.form-msg { font-size: 0.875rem; padding: 10px 12px; border-radius: var(--r); }
+.form-msg.bad { color: var(--bad); background: var(--bad-bg); border: 1px solid var(--bad-line); }
+.form-msg.ok { color: var(--ok); background: var(--ok-bg); border: 1px solid var(--ok-line); }
+.contact-l { display: grid; gap: 16px; }
+.contact-l dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 16px; font-size: 0.9375rem; margin-top: 8px; }
+.contact-l dt { color: var(--ink-3); font-size: 0.8125rem; font-weight: 600; padding-top: 2px; }
+.contact-l dd { color: var(--ink-2); }
+
+/* footer */
+.ftr { border-top: 2px solid var(--ink); padding-block: 28px calc(36px + env(safe-area-inset-bottom, 0px)); font-size: 0.875rem; color: var(--ink-3); }
+.ftr-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.ftr a { color: var(--ink-2); }
+.ftr nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Audience Lab 처음으로"><span class="brand-n">Audience Lab</span><span class="brand-s">편집국 기획 검토</span></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#features">하는 일</a>
+      <a href="#flow">흐름</a>
+      <a href="#principles">원칙</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a class="btn btn-s" href="#contact">도입 문의</a>
+      <a class="btn btn-s btn-primary to-service" href="https://audience-lab.onrender.com/">서비스 열기</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- hero -->
+  <div class="wrap hero">
+    <div class="hero-g">
+      <div>
+        <p class="kicker">편집국 기획 검토 도구</p>
+        <h1>기사로 쓰기 전에,<br><em>문장마다 근거</em>를 붙입니다</h1>
+        <p class="lede">Audience Lab은 기획과 초안의 문장을 정부·지자체 공개 자료와 대조합니다. 근거가 있는 문장, 출처끼리 설명이 다른 문장, 근거와 어긋나는 문장을 나누고, 아직 모르는 것은 취재 과제로 넘깁니다. 게재 판단은 사람이 합니다.</p>
+        <div class="cta">
+          <a class="btn btn-primary to-service" href="https://audience-lab.onrender.com/">시연 계정으로 써 보기</a>
+          <a class="btn" href="#contact">도입 문의</a>
+        </div>
+        <p class="cta-note">가입 없이 시연 계정으로 들어갈 수 있습니다. 시연 공간은 가상의 청람시 자료로 동작합니다.</p>
+      </div>
+
+      <figure class="ledger" aria-label="초안 문장 하나를 검토한 예시">
+        <div class="ledger-h"><span><b>교열 대장</b> · 재검토 결과</span><span>시연 기획 · 청람시 도서관 계약 검토</span></div>
+        <div class="ledger-b">
+          <p class="ms"><span class="ms-n">A2 · 자 44–75 · 인과 문장</span>경쟁 확대 덕분에 총 계약금액은 전년보다 <span class="strike">20%</span><span class="ins">4%</span> 줄었다.</p>
+          <div class="v-row">
+            <span class="st st-bad"><i class="mk mk-cross" aria-hidden="true"></i>반박됨 <code>CONTRADICTED</code></span>
+            <span class="v-why">수치가 근거와 다름 · 인과 근거 없음</span>
+          </div>
+          <p class="v-rec"><span>권고</span>동일 범위 공사비는 4% 감소했으나, 경쟁 확대가 원인인지는 추가 확인이 필요하다.</p>
+          <div class="calc">
+            <p class="calc-h">계산 근거 · 서버가 원 단위 정수로 다시 계산</p>
+            (1,250,000,000 − 1,200,000,000) ÷ 1,250,000,000 × 100 = <b>4%</b><br>
+            <span style="color:var(--ink-3)">가구비 2억 5,000만 원은 범위가 달라 비교에서 뺌</span>
+          </div>
+          <div class="v-row">
+            <span class="st st-mute"><i class="mk mk-ring" aria-hidden="true"></i>근거 부족 <code>INSUFFICIENT_EVIDENCE</code></span>
+            <span class="v-why">인과: 경쟁 확대의 인과 근거 필요 → 취재 과제로</span>
+          </div>
+          <p class="cl"><span class="cl-l">반박</span><span>2025년 동일 범위 공사비는 12억 5,000만 원이다. <span class="mono" style="color:var(--ink-3)">출처: 2025년 공사와 가구 분리 내역 · 자 0–91</span></span></p>
+        </div>
+        <figcaption class="ledger-f">시연 자료 · 청람시와 문서·금액은 가상입니다</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- problems -->
+  <section class="sec" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">01 — 왜 필요한가</p>
+        <h2 id="why-h">확인은 늘 마감 직전, 사람의 기억에 기대어 합니다</h2>
+      </div>
+      <div class="probs">
+        <article class="prob reveal">
+          <h3>보도자료의 숫자가 그대로 기사가 됩니다</h3>
+          <p>기관의 설명과 계약대장의 기록이 다를 때, 누가 언제 어느 원문으로 확인했는지가 남지 않습니다.</p>
+          <p class="eg">"12건 모두 공개경쟁" ↔ 대장: 공개경쟁 11건, 긴급 수의계약 1건</p>
+        </article>
+        <article class="prob reveal">
+          <h3>범위가 다른 숫자끼리 비교합니다</h3>
+          <p>가구비가 섞인 합계와 공사비만의 금액을 비교하면 같은 사실에서도 결론이 달라집니다.</p>
+          <p class="eg">합계 15억 → 12억: 20% 감소 · 같은 범위 12.5억 → 12억: 4% 감소</p>
+        </article>
+        <article class="prob reveal">
+          <h3>더 취재할 것이 기록되지 않습니다</h3>
+          <p>확인하지 못한 인과와 공백이 회의에서 말로만 오가다 사라지고, 기사에는 단정만 남습니다.</p>
+          <p class="eg">"경쟁 확대 덕분에" — 인과 근거는 아직 없음</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section class="sec" id="features" aria-labelledby="feat-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">02 — 하는 일</p>
+        <h2 id="feat-h">초안을 넣으면 근거, 상충, 공백, 다음 취재가 한 화면에 정리됩니다</h2>
+        <p class="sec-p">질문만 넣어도, 확보한 공개 원문만 넣어도 됩니다. 아래 화면은 모두 실제 서비스의 시연 공간에서 찍었습니다.</p>
+      </div>
+      <div class="feats">
+        <div class="feat">
+          <div class="feat-t reveal">
+            <p class="feat-k">초안 검토 · 교열 대장</p>
+            <h3>문장마다 판정과 권고, 이어지는 질문</h3>
+            <p>초안을 문장으로 나눠 사실·인과·의견을 가르고, 문장마다 근거 있음·상충·반박됨·근거 부족·사실 판정 대상 아님 가운데 하나로 판정합니다.</p>
+            <ul>
+              <li>수치 문장은 서버가 원 단위 정수로 다시 계산합니다</li>
+              <li>인과 문장은 인과 근거가 따로 있는지 나눠 봅니다</li>
+              <li>의견·질문 문장은 사실 판정을 하지 않습니다</li>
+            </ul>
+          </div>
+          <figure class="shot reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>기획 검토 · 초안 주장 · 원문 확인</span></div>
+              <img src="/assets/review.webp" width="1600" height="1091" alt="초안 문장 A1과 A2의 판정 표. A1은 상충, A2는 반박됨이며 계산 근거와 반박 근거가 붙어 있고, 오른쪽 원문 패널에 근거 진술과 원문 구간이 노란색으로 표시되어 있다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+
+        <div class="feat flip">
+          <div class="feat-t reveal">
+            <p class="feat-k">원문 추적</p>
+            <h3>모든 판정은 원문의 글자 위치까지 이어집니다</h3>
+            <p>판정 → 근거 진술 → 원문 구간 → 원문 버전 → 출처. 모델이 인용한 문장은 서버가 원문에서 다시 찾고, 찾지 못하면 근거로 쓰지 않습니다. 금액은 그 구간에 실제로 적힌 것만 남깁니다.</p>
+            <ul>
+              <li>원문 버전마다 SHA-256으로 고정합니다</li>
+              <li>같은 계열 출처의 재게시는 독립 확인으로 세지 않습니다</li>
+              <li>권리가 확인되지 않은 자료는 제목과 주소만 남기고 근거에서 뺍니다</li>
+            </ul>
+          </div>
+          <figure class="shot shot-narrow reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>원문 확인</span></div>
+              <img src="/assets/panel.webp" width="560" height="835" alt="원문 확인 패널. 반박하는 근거 2건이 있고, 근거 진술마다 출처 주소, 출처 계열, 권리, 발행 시각, 원문 버전 해시와 글자 구간이 나오며 인용 구간이 노란색으로 강조되어 있다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+
+        <div class="feat">
+          <div class="feat-t reveal">
+            <p class="feat-k">근거 판</p>
+            <h3>말할 수 있는 것, 서로 다른 것, 아직 모르는 것</h3>
+            <p>기준 시각까지 모은 자료를 세 갈래로 정리합니다. 서로 다른 설명은 어느 쪽이 맞는지 정하지 않고 상충으로 남기며, 공백에는 왜 중요한지와 필요한 자료, 확인 방법을 붙입니다.</p>
+          </div>
+          <figure class="shot reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>기획 검토 · 근거 판</span></div>
+              <img src="/assets/board.webp" width="1400" height="841" alt="근거 판 화면. 지금 말할 수 있는 것 표에 근거 진술과 출처, 근거 상태, 독립 출처 수가 나열되어 있다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+
+        <div class="feat flip">
+          <div class="feat-t reveal">
+            <p class="feat-k">취재 과제 · 재검토</p>
+            <h3>과제를 끝낸 것과 질문이 풀린 것을 따로 봅니다</h3>
+            <p>판정에서 바로 취재 과제를 만들고 담당자를 정합니다. 확보한 원문을 등록해 다시 검토하면, 질문 상태는 과제 완료가 아니라 새 근거로만 바뀝니다.</p>
+            <ul>
+              <li>정부·지자체 사이트 주소를 넣으면 원문을 서버가 받아 채웁니다</li>
+              <li>재검토 기준 시각 이후에 받은 자료는 그 재검토에 넣지 않습니다</li>
+            </ul>
+          </div>
+          <figure class="shot reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>취재 과제</span></div>
+              <img src="/assets/tasks.webp" width="1400" height="984" alt="취재 과제 화면. 과제의 취재 질문 세 개와 가리키는 초안 문장, 상충, 공백이 나오고, 질문별로 과제를 만든 때와 지금 활성 결과의 상태가 비교되어 있다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+
+        <div class="feat">
+          <div class="feat-t reveal">
+            <p class="feat-k">검토 비교</p>
+            <h3>무엇이 왜 바뀌었는지, 이전 결과는 그대로</h3>
+            <p>같은 초안의 이전 검토와 새 검토를 문장별로 맞대어 판정·근거·권고 가운데 무엇이 바뀌었는지와 그 이유를 보여 줍니다. 더 늦게 만든 결과라고 더 정확하다고 보지 않습니다.</p>
+          </div>
+          <figure class="shot reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>검토 비교</span></div>
+              <img src="/assets/compare.webp" width="1400" height="920" alt="검토 비교 화면. A2 문장이 근거 부족에서 반박됨으로 바뀌었고, 바뀐 이유와 이전·새 검토가 쓴 근거, 이전·새 권고가 나란히 나온다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+
+        <div class="feat flip">
+          <div class="feat-t reveal">
+            <p class="feat-k">보고서</p>
+            <h3>고정된 검토 기록을 PDF·DOCX·JSON으로</h3>
+            <p>보고서는 고른 검토와 기준 시각, 입력 버전에 고정됩니다. 서버는 파일을 만든 뒤 다시 읽어 형식과 해시를 확인하고, 내려받을 때 브라우저도 크기와 SHA-256을 한 번 더 맞춰 봅니다. 권리가 회수된 자료가 들어 있으면 파일을 내주지 않습니다.</p>
+          </div>
+          <figure class="shot shot-narrow reveal">
+            <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>보고서 미리보기</span></div>
+              <img src="/assets/report.webp" width="1100" height="1412" alt="기획 검토 보고서 미리보기. 기획 질문, 기준 시각, 입력 버전, 경고, 초안 주장 검토 표가 있다." loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- flow -->
+  <section class="sec" id="flow" aria-labelledby="flow-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">03 — 흐름</p>
+        <h2 id="flow-h">질문 하나에서 보고서까지, 다섯 단계</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><h3>기획 입력</h3><p>기획 질문과 초안(또는 확보한 공개 원문), 기준 시각을 넣습니다. 입력은 버전으로 남습니다.</p><p class="who">기자 · PD · 작가</p></li>
+        <li class="step reveal"><h3>공개 자료 수집</h3><p>go.kr · korea.kr · kosis.kr에서 자료를 찾고, 서버가 원문을 직접 받아 저장합니다. 관련 보도는 링크만 남깁니다.</p><p class="who">자동</p></li>
+        <li class="step reveal"><h3>근거 정리</h3><p>원문에서 인용한 문장만 근거 진술이 됩니다. 상충과 공백, 질문 트리를 만들고 상위 질문의 상태는 서버가 다시 계산합니다.</p><p class="who">자동 · 서버 검증</p></li>
+        <li class="step reveal"><h3>초안 대조</h3><p>문장별 판정과 권고, 필요한 근거를 냅니다. 수치는 다시 계산하고, 판정이 근거 목록과 맞지 않으면 저장하지 않습니다.</p><p class="who">자동 · 서버 검증</p></li>
+        <li class="step reveal"><h3>취재와 재검토</h3><p>과제를 만들고 새 자료를 등록해 다시 검토합니다. 비교 화면에서 바뀐 점을 확인하고 보고서를 고정해 공유합니다.</p><p class="who">기자 · 데스크</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- principles -->
+  <section class="sec" id="principles" aria-labelledby="pr-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">04 — 원칙</p>
+        <h2 id="pr-h">하지 않는 것을 먼저 정했습니다</h2>
+        <p class="sec-p">검토 도구가 판단을 대신하는 순간 편집국의 책임이 흐려집니다. Audience Lab은 판단의 재료와 그 출처를 정리하는 데서 멈춥니다.</p>
+      </div>
+      <div class="rules">
+        <article class="rule reveal"><h3>독자 반응을 예측하지 않습니다</h3><p>이 기사가 어떤 반응을 얻을지 점치지 않습니다. 대신 받을 수 있는 반론의 틀을 보여 줍니다.</p><code>NOT_AUDIENCE_PREDICTION</code></article>
+        <article class="rule reveal"><h3>합성 반론은 사실이 아닙니다</h3><p>반론 틀은 근거를 다르게 읽는 방식에 대한 합성 해석이라고 화면과 보고서에 표시합니다.</p><code>SYNTHETIC_INTERPRETATION · NOT_FACT</code></article>
+        <article class="rule reveal"><h3>점수는 확률이 아닙니다</h3><p>중요도·검증 가능성 같은 요인은 무엇을 먼저 볼지 정하는 데만 쓰고, 맞을 확률로 쓰지 않습니다.</p><code>DECISION_FIRST</code></article>
+        <article class="rule reveal"><h3>권리를 확인한 본문만 저장합니다</h3><p>정부·지자체 공공저작물(저작권법 제24조의2)만 전문을 저장합니다. 권리가 확인되지 않은 자료는 제목과 주소만 남깁니다.</p><code>SOURCE_RIGHTS_EXCLUDED</code></article>
+        <article class="rule reveal"><h3>기준 시각에 고정합니다</h3><p>판정은 그 시각까지 확인한 자료 범위에서만 유효합니다. 나중에 들어온 자료는 새 검토로 따로 남습니다.</p><code>as_of</code></article>
+        <article class="rule reveal"><h3>게재 판단은 사람이 합니다</h3><p>근거 있음은 게재 승인이 아닙니다. 원문 구간을 열어 직접 확인하도록 모든 판정에 경로를 붙입니다.</p><code>HUMAN_DECISION_REQUIRED</code></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- audience -->
+  <section class="sec" id="who" aria-labelledby="who-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">05 — 쓰는 사람</p>
+        <h2 id="who-h">기획을 쓰는 사람과 받는 사람이 같은 근거를 봅니다</h2>
+      </div>
+      <div class="whos">
+        <article class="who-c reveal">
+          <h3>기자</h3>
+          <ul>
+            <li>데스크에 넘기기 전에 문장별로 근거를 점검</li>
+            <li>숫자 문장의 비교 범위와 계산을 확인</li>
+            <li>확보한 공개 원문을 등록하고 다시 검토</li>
+          </ul>
+        </article>
+        <article class="who-c reveal">
+          <h3>데스크</h3>
+          <ul>
+            <li>근거·상충·공백을 한 화면에서 보고 판단</li>
+            <li>남은 질문을 취재 과제로 배정하고 진행 확인</li>
+            <li>고정된 보고서로 검토 이력을 남김</li>
+          </ul>
+        </article>
+        <article class="who-c reveal">
+          <h3>PD · 작가</h3>
+          <ul>
+            <li>기획 단계에서 사실관계와 쟁점을 정리</li>
+            <li>섭외·인터뷰 전에 확인할 질문 목록 확보</li>
+            <li>초안 없이 질문만으로도 근거 판과 Brief 작성</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- demo -->
+  <section class="sec" id="demo" aria-labelledby="demo-h">
+    <div class="wrap demo">
+      <div class="reveal">
+        <p class="sec-n">06 — 시연</p>
+        <h2 id="demo-h" class="h2-gap">로그인 화면에서 시연 계정을 고르면 바로 시작합니다</h2>
+        <div class="accts">
+          <div class="acct"><b>기자 A</b><span>편집 권한 · 검토와 과제, 보고서</span></div>
+          <div class="acct"><b>에디터 B</b><span>편집 권한 · 과제 처리와 재검토</span></div>
+          <div class="acct"><b>열람자 C</b><span>열람 권한 · 읽기만</span></div>
+        </div>
+        <p style="color:var(--ink-2)">시연 공간은 편집국 공간과 분리되어 있고, 가상의 청람시 도서관 계약 자료로 입력부터 보고서까지 모든 화면을 써 볼 수 있습니다. 실제 공개 자료 검색과 모델 판정은 관리자가 발급한 편집국 계정에서 동작합니다.</p>
+        <p class="cta"><a class="btn btn-primary to-service" href="https://audience-lab.onrender.com/">시연 시작하기</a></p>
+      </div>
+      <figure class="shot reveal">
+        <div class="shot-f"><div class="shot-bar"><i></i><i></i><i></i><span>실행 상태</span></div>
+          <img src="/assets/status.webp" width="1400" height="841" alt="실행 상태 화면. 근거 실행, 초안 검토, 재검토 작업이 단계와 함께 완료 상태로 나열되어 있다." loading="lazy" decoding="async"></div>
+        <figcaption>근거 실행·검토·재검토는 작업으로 접수되고, 단계와 경고를 화면에서 따라갑니다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="sec" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <p class="sec-n">07 — 자주 묻는 질문</p>
+        <h2 id="faq-h">도입 전에 많이 묻는 것</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>어떤 자료를 찾아 대조하나요?</summary>
+          <div class="a"><p>정부·지자체 공개 자료(go.kr, korea.kr, kosis.kr)를 검색해 서버가 원문을 직접 받아 대조합니다. 이미 확보한 공개 원문은 붙여 넣거나, 정부·지자체 사이트 주소를 넣어 가져올 수 있습니다. 관련 보도는 권리가 확인되지 않아 링크만 보여 주고 근거로 쓰지 않습니다.</p></div>
+        </details>
+        <details>
+          <summary>판정을 그대로 믿어도 되나요?</summary>
+          <div class="a"><p>그렇게 쓰도록 만들지 않았습니다. 판정은 기준 시각까지 확인한 자료 범위 안에서만 유효하고, 근거 있음은 게재 승인이 아닙니다. 모든 판정에 근거 진술과 원문 구간을 붙여 사람이 직접 열어 보고 판단하게 합니다.</p></div>
+        </details>
+        <details>
+          <summary>AI는 어디까지 하고, 무엇을 서버가 직접 확인하나요?</summary>
+          <div class="a"><p>모델(OpenAI GPT 계열)은 원문에서 인용할 문장을 고르고, 상충·공백을 정리하고, 초안 문장의 판정을 제안합니다. 인용이 원문에 실제로 있는지, 금액이 그 구간에 적혀 있는지, 증감률 계산, 상위 질문 상태 집계, 판정과 근거 목록의 일치, 자료 권리는 서버가 규칙으로 다시 확인합니다. 맞지 않으면 저장하지 않습니다.</p></div>
+        </details>
+        <details>
+          <summary>입력한 초안은 어디로 가나요?</summary>
+          <div class="a"><p>서비스 서버의 데이터베이스에 저장되고, 검토할 때 문장과 근거 원문이 OpenAI API로 전송됩니다. API 요청은 응답 보관(store)을 끈 상태로 보냅니다. 서비스는 공개 자료만 받도록 설계되어 있으니, 미공개 취재원 정보나 기밀 자료는 넣지 마세요.</p></div>
+        </details>
+        <details>
+          <summary>독자나 시청자의 반응도 알려 주나요?</summary>
+          <div class="a"><p>알려 주지 않습니다. 받을 수 있는 반론의 틀은 보여 주지만, 이는 근거를 다르게 읽는 방식에 대한 합성 해석이며 사실이나 반응 예측이 아니라고 표시합니다.</p></div>
+        </details>
+        <details>
+          <summary>계정과 권한은 어떻게 나뉘나요?</summary>
+          <div class="a"><p>공개 가입은 없고 편집국 관리자가 계정을 발급합니다. 열람(읽기), 편집(검토·과제·결과·보고서), 관리(계정 관리까지) 세 가지 권한이 있고, 권한은 서버가 확인합니다.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="sec" id="contact" aria-labelledby="ct-h">
+    <div class="wrap contact">
+      <div class="contact-l reveal">
+        <p class="sec-n">08 — 도입 문의</p>
+        <h2 id="ct-h">편집국 파일럿을 함께 설계합니다</h2>
+        <p style="color:var(--ink-2)">소속과 검토하고 싶은 기획의 종류를 알려 주시면 연락드립니다. 실제 기획 한두 건으로 시작해, 어떤 공개 자료가 필요한지부터 함께 맞춥니다.</p>
+        <dl>
+          <dt>시작</dt><dd>관리자 계정 1개, 구성원 계정 발급</dd>
+          <dt>자료</dt><dd>정부·지자체 공개 자료, 직접 등록한 공개 원문</dd>
+          <dt>결과</dt><dd>문장별 검토, 취재 과제, 고정 보고서(PDF·DOCX·JSON)</dd>
+        </dl>
+      </div>
+      <form class="form reveal" id="ctForm" novalidate>
+        <div class="form-2">
+          <div class="fld"><label for="fOrg">소속<span class="req">필수</span></label><input id="fOrg" name="org" type="text" autocomplete="organization" placeholder="언론사, 제작사, 프로그램" required></div>
+          <div class="fld"><label for="fName">이름<span class="req">필수</span></label><input id="fName" name="name" type="text" autocomplete="name" required></div>
+        </div>
+        <div class="form-2">
+          <div class="fld"><label for="fEmail">이메일<span class="req">필수</span></label><input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="fld"><label for="fRole">하는 일</label>
+            <select id="fRole" name="role">
+              <option>기자</option><option>데스크</option><option>PD</option><option>작가</option><option>기타</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld"><label for="fTopic">검토하고 싶은 기획<span class="req">필수</span></label><input id="fTopic" name="topic" type="text" placeholder="예: 지자체 계약·예산 기사, 정책 효과 기획" required></div>
+        <div class="fld"><label for="fMsg">하고 싶은 말</label><textarea id="fMsg" name="message" placeholder="일정, 인원, 궁금한 점"></textarea></div>
+        <label class="agree"><input type="checkbox" id="fAgree"><span>개인정보 수집·이용에 동의합니다<small>항목: 소속, 이름, 이메일, 문의 내용 · 목적: 문의 답변 · 보유: 답변을 마친 뒤 1년</small></span></label>
+        <p class="form-msg bad" id="ctErr" role="alert" hidden></p>
+        <p class="form-msg ok" id="ctOk" role="status" hidden>문의를 보냈습니다. 확인하고 연락드리겠습니다.</p>
+        <div><button class="btn btn-primary" type="submit" id="ctSubmit">문의 보내기</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <p><b style="color:var(--ink)">Audience Lab</b> · 편집국 기획 검토 · 화면 속 기관·문서·금액은 시연용 가상 자료입니다</p>
+    <nav aria-label="바닥 메뉴"><a class="to-service" href="https://audience-lab.onrender.com/">서비스</a><a href="#demo">시연</a><a href="#contact">도입 문의</a></nav>
+  </div>
+</footer>
+
+<script>
+/* 헤더 구분선 */
+(function () {
+  var hdr = document.getElementById('hdr');
+  var on = function () { hdr.classList.toggle('scrolled', window.scrollY > 24); };
+  window.addEventListener('scroll', on, { passive: true });
+  on();
+})();
+
+/* 스크롤에 맞춰 나타나기 (모션을 줄인 환경과 오래된 브라우저에서는 바로 보임) */
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('on');
+    return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    for (var i = 0; i < es.length; i++) if (es[i].isIntersecting) { es[i].target.classList.add('on'); io.unobserve(es[i].target); }
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+
+/* 도입 문의: Web3Forms (access key는 공개용으로 설계된 값이며 받는 메일 주소는 드러나지 않음) */
+(function () {
+  var KEY = '669fae9c-d6a9-448f-9b61-5623b46dafb6';
+  var form = document.getElementById('ctForm');
+  var err = document.getElementById('ctErr');
+  var ok = document.getElementById('ctOk');
+  var btn = document.getElementById('ctSubmit');
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.hidden = true; ok.hidden = true;
+    var org = v('fOrg'), name = v('fName'), email = v('fEmail'), topic = v('fTopic');
+    if (!org || !name || !email || email.indexOf('@') < 1 || !topic) { err.textContent = '소속, 이름, 이메일, 검토하고 싶은 기획을 모두 적어 주세요.'; err.hidden = false; return; }
+    if (!document.getElementById('fAgree').checked) { err.textContent = '개인정보 수집·이용에 동의해 주세요.'; err.hidden = false; return; }
+    btn.disabled = true; btn.textContent = '보내는 중…';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: KEY,
+        subject: '[Audience Lab 문의] ' + org + ' · ' + name,
+        from_name: 'Audience Lab 홈페이지',
+        replyto: email,
+        '소속': org, '이름': name, '이메일': email, '하는 일': v('fRole'), '검토하고 싶은 기획': topic, '하고 싶은 말': v('fMsg')
+      })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res || res.success !== true) throw new Error('relay');
+      form.reset(); ok.hidden = false;
+    }).catch(function () {
+      err.textContent = '보내지 못했습니다. 잠시 뒤 다시 시도해 주세요.'; err.hidden = false;
+    }).then(function () { btn.disabled = false; btn.textContent = '문의 보내기'; });
+  });
+})();
+</script>
+</body>
+</html>

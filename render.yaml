@@ -1,0 +1,37 @@
+# Render Blueprint — Audience Lab 편집국 서비스 (Docker 한 서비스)
+# 사용: Render 대시보드 → New → Blueprint → 이 저장소 → Apply
+# 비용: 0.5c-512mb(기존 Starter) 월 $7 + 디스크 1GB 월 $0.25. 모델 사용료는 연결한 OpenAI 계정에 따로 청구된다.
+services:
+  - type: web
+    name: audience-lab
+    runtime: docker
+    plan: 0.5c-512mb
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    buildFilter:
+      ignoredPaths:
+        - homepage/**
+        - "**/*.md"
+    disk:
+      name: audience-lab-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false            # 대시보드에서 직접 입력 (sk-…)
+      - key: ADMIN_EMAIL
+        sync: false            # 첫 관리자 계정의 로그인 이메일
+      - key: ADMIN_PASSWORD
+        sync: false            # 첫 관리자 비밀번호. 로그인한 뒤 '내 계정'에서 바꾼다
+      - key: OPENAI_MODEL
+        value: gpt-5.4-mini
+      - key: OPENAI_REASONING_EFFORT
+        value: low
+      - key: DATA_DIR
+        value: /var/data
+      - key: DAILY_MODEL_CALL_LIMIT
+        value: "600"
+      - key: DAILY_SEARCH_CALL_LIMIT
+        value: "150"

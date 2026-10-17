@@ -1,0 +1,497 @@
+{
+  "provenance": "FICTIONAL_SCHEMA_EXAMPLES_NOT_API_EXECUTION",
+  "examples": [
+    {
+      "label": "review_QUEUED",
+      "schema": "Review",
+      "value": {
+        "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+        "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+        "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+        "as_of": "2026-09-30T09:00:00Z",
+        "status": "QUEUED",
+        "row_version": 2,
+        "allow_partial": false,
+        "created_at": "2026-09-30T09:00:00Z",
+        "completed_at": null,
+        "error_code": null,
+        "items": [],
+        "questions": [],
+        "question_assessments": [],
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "review_RUNNING",
+      "schema": "Review",
+      "value": {
+        "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+        "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+        "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+        "as_of": "2026-09-30T09:00:00Z",
+        "status": "RUNNING",
+        "row_version": 2,
+        "allow_partial": false,
+        "created_at": "2026-09-30T09:00:00Z",
+        "completed_at": null,
+        "error_code": null,
+        "items": [],
+        "questions": [],
+        "question_assessments": [],
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "review_PARTIAL",
+      "schema": "Review",
+      "value": {
+        "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+        "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+        "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+        "as_of": "2026-09-30T09:00:00Z",
+        "status": "PARTIAL",
+        "row_version": 2,
+        "allow_partial": true,
+        "created_at": "2026-09-30T09:00:00Z",
+        "completed_at": "2026-09-30T09:00:00Z",
+        "error_code": null,
+        "items": [
+          {
+            "assertion_id": "679f83b6-931c-578a-9842-f4c04d9cff3e",
+            "status": "CONFLICT",
+            "claim_ids": [
+              "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+              "8c6a1716-9f11-551c-80f8-423187dbeb58"
+            ],
+            "conflict_ids": [
+              "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+            ],
+            "unknown_ids": [],
+            "reason_codes": [
+              "SCOPE_MATCHED",
+              "SOURCES_DISAGREE"
+            ],
+            "recommendation": "기관의 설명과 계약대장의 차이를 확인하기 전 모두 공개경쟁이라는 단정을 보류한다.",
+            "needed_evidence": [],
+            "supporting_claim_ids": [
+              "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+            ],
+            "contradicting_claim_ids": [
+              "8c6a1716-9f11-551c-80f8-423187dbeb58"
+            ],
+            "assertion_key": "122369e1a6b4eb8a56e9f304000aafc0bcf3cb1310d7cb26a09bacd41f4a6f11",
+            "text": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.",
+            "start": 0,
+            "end": 43,
+            "kind": "FACTUAL",
+            "subchecks": []
+          },
+          {
+            "assertion_id": "a1f2e6b9-cfa2-5f7d-9e71-0dddbfc6a863",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "claim_ids": [
+              "2cc009ae-8d82-5a3f-9291-446dfd095961",
+              "1b547398-ac89-5cab-8982-9c81370f5b6d"
+            ],
+            "conflict_ids": [],
+            "unknown_ids": [
+              "f9602915-461c-55e0-96a1-39529a588d34"
+            ],
+            "reason_codes": [
+              "NON_COMPARABLE_SCOPE",
+              "CAUSATION_NOT_ESTABLISHED"
+            ],
+            "recommendation": "20% 절감과 경쟁 확대 덕분이라는 표현을 보류하고 동일 범위 비용과 인과 근거를 취재한다.",
+            "needed_evidence": [
+              "2025년 공사비와 가구비 분리 내역",
+              "2026년 동일 범위 공사비",
+              "물량과 단가 변화",
+              "계약 방식 변경 근거"
+            ],
+            "supporting_claim_ids": [],
+            "contradicting_claim_ids": [],
+            "assertion_key": "c943b3aa7ed96e0e02fe7a11eded9f8ce33b7d34588eb7d45166dac211e6d9c5",
+            "text": "경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.",
+            "start": 44,
+            "end": 75,
+            "kind": "CAUSAL",
+            "subchecks": [
+              {
+                "kind": "NUMERIC",
+                "status": "INSUFFICIENT_EVIDENCE",
+                "supporting_claim_ids": [],
+                "contradicting_claim_ids": [],
+                "expected_percent": "20",
+                "observed_percent": null,
+                "calculation": null,
+                "needed_evidence": [
+                  "동일 범위 비용"
+                ]
+              },
+              {
+                "kind": "CAUSAL",
+                "status": "INSUFFICIENT_EVIDENCE",
+                "supporting_claim_ids": [],
+                "contradicting_claim_ids": [],
+                "expected_percent": null,
+                "observed_percent": null,
+                "calculation": null,
+                "needed_evidence": [
+                  "경쟁 확대의 인과 근거"
+                ]
+              }
+            ]
+          },
+          {
+            "assertion_id": "0aba3011-d68c-5e4f-805b-b4bcfc74d224",
+            "status": "SUPPORTED",
+            "claim_ids": [
+              "2cc009ae-8d82-5a3f-9291-446dfd095961"
+            ],
+            "conflict_ids": [],
+            "unknown_ids": [],
+            "reason_codes": [
+              "DIRECT_LEDGER_SUPPORT"
+            ],
+            "recommendation": "계약대장에 기록된 금액이라는 출처와 범위를 붙여 사용할 수 있다.",
+            "needed_evidence": [],
+            "supporting_claim_ids": [
+              "2cc009ae-8d82-5a3f-9291-446dfd095961"
+            ],
+            "contradicting_claim_ids": [],
+            "assertion_key": "e4844994ac136851a4d5a309808aa0af6ef013ca35a36b0602a596f663e41f84",
+            "text": "2026년 총 계약금액은 12억 원이다.",
+            "start": 76,
+            "end": 98,
+            "kind": "FACTUAL",
+            "subchecks": []
+          }
+        ],
+        "questions": [
+          {
+            "id": "f9602915-461c-55e0-96a1-39529a588d34",
+            "parent_id": null,
+            "question_key": "U1",
+            "question": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+            "required_children": [
+              "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+              "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+            ]
+          },
+          {
+            "id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+            "question_key": "U1a",
+            "question": "동일 범위 공사비는 얼마나 변했는가",
+            "required_children": []
+          },
+          {
+            "id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+            "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+            "question_key": "U1b",
+            "question": "경쟁 확대가 비용 변화의 원인인가",
+            "required_children": []
+          },
+          {
+            "id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+            "parent_id": null,
+            "question_key": "X1",
+            "question": "기관 설명과 계약대장의 차이가 해소됐는가",
+            "required_children": []
+          }
+        ],
+        "question_assessments": [
+          {
+            "id": "8b3e2fa8-a35e-5760-a2c9-db86fb5106c2",
+            "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+            "status": "OPEN",
+            "resolution_claim_ids": [],
+            "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+            "needed_evidence": [
+              "필요한 원문과 설명"
+            ],
+            "calculation": null
+          },
+          {
+            "id": "34b10208-d08d-5e86-af2d-bcee7d9be50f",
+            "question_id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "status": "OPEN",
+            "resolution_claim_ids": [],
+            "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+            "needed_evidence": [
+              "필요한 원문과 설명"
+            ],
+            "calculation": null
+          },
+          {
+            "id": "093f233f-8317-54b0-8b3b-f6037d4e4916",
+            "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+            "status": "OPEN",
+            "resolution_claim_ids": [],
+            "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+            "needed_evidence": [
+              "경쟁 확대의 인과 근거"
+            ],
+            "calculation": null
+          },
+          {
+            "id": "2f89f9b4-0889-560f-b7c0-96b6bf6fa599",
+            "question_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+            "status": "CONFLICTED",
+            "resolution_claim_ids": [],
+            "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+            "needed_evidence": [
+              "계약 예외와 정정 원문"
+            ],
+            "calculation": null
+          }
+        ],
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          },
+          {
+            "code": "PARTIAL_SOURCE_COLLECTION",
+            "message": "일부 검색 채널은 실패하여 결과 범위가 제한된다.",
+            "object_ids": []
+          }
+        ]
+      }
+    },
+    {
+      "label": "review_FAILED",
+      "schema": "Review",
+      "value": {
+        "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+        "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+        "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+        "as_of": "2026-09-30T09:00:00Z",
+        "status": "FAILED",
+        "row_version": 2,
+        "allow_partial": false,
+        "created_at": "2026-09-30T09:00:00Z",
+        "completed_at": "2026-09-30T09:00:00Z",
+        "error_code": "REVIEW_OUTPUT_INVALID",
+        "items": [],
+        "questions": [],
+        "question_assessments": [],
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "review_BLOCKED",
+      "schema": "Review",
+      "value": {
+        "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+        "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+        "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+        "as_of": "2026-09-30T09:00:00Z",
+        "status": "BLOCKED",
+        "row_version": 2,
+        "allow_partial": false,
+        "created_at": "2026-09-30T09:00:00Z",
+        "completed_at": "2026-09-30T09:00:00Z",
+        "error_code": "SOURCE_RIGHTS_BLOCKED",
+        "items": [],
+        "questions": [],
+        "question_assessments": [],
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "search_PARTIAL",
+      "schema": "Search",
+      "value": {
+        "id": "b04b17c3-b1ca-5ec4-9726-09edbeafca98",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "job_id": "43bc2c9d-e040-5017-9d4b-b0d19f81776f",
+        "baseline_pack_id": "ff347468-732b-518a-b4fe-53cbc981b1ec",
+        "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+        "question": "경쟁 확대가 비용 변화의 원인인가",
+        "as_of": "2026-10-03T10:00:00Z",
+        "status": "PARTIAL",
+        "parameters": {
+          "query_budget": 10,
+          "source_budget": 20,
+          "language": "ko"
+        },
+        "plan": [
+          {
+            "purpose": "UNKNOWN_DRIVEN",
+            "query": "청람시 도서관 리모델링 계약 방식 비용 변화 원인"
+          }
+        ],
+        "coverage": {
+          "planned_channels": [
+            "PUBLIC_SEARCH",
+            "PUBLIC_RECORDS"
+          ],
+          "completed_channels": [
+            "PUBLIC_SEARCH"
+          ],
+          "failed_channels": [
+            "PUBLIC_RECORDS"
+          ],
+          "deferred_source_count": 0
+        },
+        "new_submission_ids": [],
+        "candidate_pack_id": null,
+        "query_used": 1,
+        "source_used": 0,
+        "warnings": [
+          {
+            "code": "SEARCH_CHANNEL_FAILED",
+            "message": "공개 자료 채널 호출이 실패했다.",
+            "object_ids": []
+          }
+        ],
+        "error_code": null,
+        "created_at": "2026-10-03T10:00:00Z",
+        "completed_at": "2026-10-03T10:00:10Z"
+      }
+    },
+    {
+      "label": "search_FAILED",
+      "schema": "Search",
+      "value": {
+        "id": "b04b17c3-b1ca-5ec4-9726-09edbeafca98",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "job_id": "43bc2c9d-e040-5017-9d4b-b0d19f81776f",
+        "baseline_pack_id": "ff347468-732b-518a-b4fe-53cbc981b1ec",
+        "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+        "question": "경쟁 확대가 비용 변화의 원인인가",
+        "as_of": "2026-10-03T10:00:00Z",
+        "status": "FAILED",
+        "parameters": {
+          "query_budget": 10,
+          "source_budget": 20,
+          "language": "ko"
+        },
+        "plan": [
+          {
+            "purpose": "UNKNOWN_DRIVEN",
+            "query": "청람시 도서관 리모델링 계약 방식 비용 변화 원인"
+          }
+        ],
+        "coverage": {
+          "planned_channels": [
+            "PUBLIC_SEARCH",
+            "PUBLIC_RECORDS"
+          ],
+          "completed_channels": [],
+          "failed_channels": [
+            "PUBLIC_SEARCH",
+            "PUBLIC_RECORDS"
+          ],
+          "deferred_source_count": 0
+        },
+        "new_submission_ids": [],
+        "candidate_pack_id": null,
+        "query_used": 1,
+        "source_used": 0,
+        "warnings": [
+          {
+            "code": "SEARCH_CHANNEL_FAILED",
+            "message": "공개 자료 채널 호출이 실패했다.",
+            "object_ids": []
+          }
+        ],
+        "error_code": "ALL_SEARCH_CHANNELS_FAILED",
+        "created_at": "2026-10-03T10:00:00Z",
+        "completed_at": "2026-10-03T10:00:10Z"
+      }
+    },
+    {
+      "label": "reassessment_BRANCH_ONLY",
+      "schema": "Reassessment",
+      "value": {
+        "id": "c2d8695f-aa40-56c2-842c-dee7c7bfa38a",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "job_id": "97cc7c3b-3864-50a7-bfa8-d49cbd965256",
+        "baseline_review_id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+        "reporting_result_ids": [
+          "7d7d0e67-958d-51c7-9521-0ab4ee28592c"
+        ],
+        "as_of": "2026-10-02T10:00:00Z",
+        "allow_partial": false,
+        "status": "COMPLETED",
+        "stage": "TERMINAL",
+        "result_pack_id": "ff347468-732b-518a-b4fe-53cbc981b1ec",
+        "result_review_id": "004febb2-2df4-5a11-9cf5-f8d9f20f7a31",
+        "delta_id": "cc7200a8-5f02-55ff-9636-1cfa3c4be7d6",
+        "head_updated": false,
+        "warnings": [
+          {
+            "code": "SOURCE_RIGHTS_EXCLUDED",
+            "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+            "object_ids": [
+              "610b5bde-643a-5a36-9652-251888e86438"
+            ]
+          },
+          {
+            "code": "BRANCH_ONLY",
+            "message": "활성 입력이 변경되어 결과를 별도 branch로 보존했다.",
+            "object_ids": []
+          }
+        ],
+        "error_code": null,
+        "created_at": "2026-10-02T10:00:00Z",
+        "completed_at": "2026-10-02T10:00:10Z"
+      }
+    }
+  ]
+}

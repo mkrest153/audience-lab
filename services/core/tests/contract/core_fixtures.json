@@ -1,0 +1,1947 @@
+{
+  "schema_version": "public-core-1.0",
+  "provenance": "작성한 가상 테스트 자료이며 실제 보도나 실증 결과가 아니다",
+  "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+  "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+  "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+  "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+  "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+  "as_of": "2026-09-30T09:00:00Z",
+  "title": "청람시 도서관 계약 검토",
+  "primary_editorial_question": "계약 경쟁 확대와 비용 절감 주장을 기사에 쓸 수 있는가",
+  "draft": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.\n경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.\n2026년 총 계약금액은 12억 원이다.",
+  "assertions": [
+    {
+      "assertion_id": "679f83b6-931c-578a-9842-f4c04d9cff3e",
+      "key": "A1",
+      "text": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.",
+      "start": 0,
+      "end": 43,
+      "kind": "FACTUAL",
+      "assertion_key": "122369e1a6b4eb8a56e9f304000aafc0bcf3cb1310d7cb26a09bacd41f4a6f11"
+    },
+    {
+      "assertion_id": "a1f2e6b9-cfa2-5f7d-9e71-0dddbfc6a863",
+      "key": "A2",
+      "text": "경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.",
+      "start": 44,
+      "end": 75,
+      "kind": "CAUSAL",
+      "assertion_key": "c943b3aa7ed96e0e02fe7a11eded9f8ce33b7d34588eb7d45166dac211e6d9c5"
+    },
+    {
+      "assertion_id": "0aba3011-d68c-5e4f-805b-b4bcfc74d224",
+      "key": "A3",
+      "text": "2026년 총 계약금액은 12억 원이다.",
+      "start": 76,
+      "end": 98,
+      "kind": "FACTUAL",
+      "assertion_key": "e4844994ac136851a4d5a309808aa0af6ef013ca35a36b0602a596f663e41f84"
+    }
+  ],
+  "sources": [
+    {
+      "key": "S1",
+      "source_id": "91e6d347-8cfe-5ea8-a34f-8f8c24815ab6",
+      "revision_id": "634b5ff4-80d7-50d0-a363-32a45531f32c",
+      "passage_id": "65f73072-41a1-544a-8a65-6254baa2d0a4",
+      "url": "https://fixture.example/s1",
+      "title": "시 보도자료",
+      "published_at": "2026-09-01T00:00:00Z",
+      "family": "CITY_RELEASE",
+      "rights": "OPEN",
+      "body": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다고 밝혔다.",
+      "body_sha256": "fecf89a7ee043b7ee3100422d5a1b66b11bd2d48c48def712db5c9f8ea8e3eeb",
+      "start": 0,
+      "end": 48,
+      "sensitivity": "PUBLIC",
+      "available_at": "2026-09-30T09:00:00Z"
+    },
+    {
+      "key": "S2",
+      "source_id": "2812e586-64e9-581a-b132-71f0a7dd0a17",
+      "revision_id": "251ca71c-c86c-542d-844c-056fc9868a5d",
+      "passage_id": "bb0cb575-18f4-5d9c-a98a-26d9f14d604e",
+      "url": "https://fixture.example/s2",
+      "title": "2026년 계약대장",
+      "published_at": "2026-09-02T00:00:00Z",
+      "family": "CONTRACT_LEDGER",
+      "rights": "OPEN",
+      "body": "대상: 2026년 도서관 리모델링 공사. 계약 12건 중 공개경쟁 11건, 긴급 수의계약 1건. 총 계약금액 12억 원.",
+      "body_sha256": "d17a4058c20ecb8e0a75120a4584a6ea8edab5a78478ec1870b86933bfe455bf",
+      "start": 0,
+      "end": 67,
+      "sensitivity": "PUBLIC",
+      "available_at": "2026-09-30T09:00:00Z"
+    },
+    {
+      "key": "S3",
+      "source_id": "6291a962-56ca-5f8a-ad08-2e72874c09fe",
+      "revision_id": "6f8661c5-6854-50ae-bf13-46e7428bf544",
+      "passage_id": "a7973509-d579-519a-92e7-f43ed6a9abf5",
+      "url": "https://fixture.example/s3",
+      "title": "2025년 지출 요약",
+      "published_at": "2025-12-31T00:00:00Z",
+      "family": "PREVIOUS_LEDGER",
+      "rights": "OPEN",
+      "body": "대상: 2025년 도서관 리모델링 공사와 가구 구매. 총 계약금액 15억 원. 공사와 가구의 금액 구분은 공개하지 않았다.",
+      "body_sha256": "3879ac5ddd56ad718543bb6bb01074e00bba9003f76857af5564e59b5e2d26f8",
+      "start": 0,
+      "end": 68,
+      "sensitivity": "PUBLIC",
+      "available_at": "2026-09-30T09:00:00Z"
+    },
+    {
+      "key": "S4",
+      "source_id": "40fd9222-8e8c-5511-92f9-1298f545355d",
+      "revision_id": "8a2111ca-812f-5dab-b9ab-99cc9bfe0883",
+      "passage_id": "c951e516-33b9-5089-9f35-20b9cec99a44",
+      "url": "https://fixture.example/s4",
+      "title": "보도자료 재게시",
+      "published_at": "2026-09-03T00:00:00Z",
+      "family": "CITY_RELEASE",
+      "rights": "OPEN",
+      "body": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다고 밝혔다.",
+      "body_sha256": "fecf89a7ee043b7ee3100422d5a1b66b11bd2d48c48def712db5c9f8ea8e3eeb",
+      "start": 0,
+      "end": 48,
+      "sensitivity": "PUBLIC",
+      "available_at": "2026-09-30T09:00:00Z"
+    },
+    {
+      "key": "S5",
+      "source_id": "610b5bde-643a-5a36-9652-251888e86438",
+      "revision_id": "8892664c-7a87-578d-8df8-345e361174ad",
+      "passage_id": "631b5ca8-37e6-5a52-83f5-0c4e0c180c27",
+      "url": "https://fixture.example/s5",
+      "title": "접근 권한 미확인 인터뷰",
+      "published_at": "2026-09-04T00:00:00Z",
+      "family": "INTERVIEW",
+      "rights": "UNKNOWN",
+      "body": "담당자는 특정 업체에 유리한 계약이 있었다고 말했다.",
+      "body_sha256": "822487e64b749d7ada2fdf8e75cd8077d6fdbc602bab86eb887dd8ec82ad47b6",
+      "start": 0,
+      "end": 29,
+      "sensitivity": "PUBLIC",
+      "available_at": "2026-09-30T09:00:00Z"
+    },
+    {
+      "key": "S6",
+      "title": "2025년 공사와 가구 분리 내역",
+      "body": "2025년 도서관 리모델링 공사 계약금액은 12억 5000만 원, 가구 구매는 2억 5000만 원이다. 합계 15억 원이며 공사 범위는 2026년 공사와 동일하다.",
+      "published_at": "2026-10-01T03:00:00Z",
+      "available_at": "2026-10-02T09:00:00Z",
+      "family": "CONTRACT_LEDGER",
+      "rights": "OPEN",
+      "sensitivity": "PUBLIC",
+      "start": 0,
+      "end": 91,
+      "body_sha256": "61219dea5e0c2c8982a86b7e6f4d4842f67e819739669f8c3677a10343f8b2d0",
+      "source_id": "b565d72f-7655-5abf-9549-afbd4ec11ead",
+      "revision_id": "1863ffdb-b95b-5495-8c25-45922f9c2cce",
+      "passage_id": "2e278793-ca4a-5a3c-aca7-5e591c5e6aee",
+      "submission_id": "0c763cec-89b1-50d1-b890-795cbc7657bd",
+      "url": "https://fixture.example/s6"
+    },
+    {
+      "key": "S7",
+      "title": "2026년 계약대장 보충",
+      "body": "2026년 도서관 리모델링 공사 계약금액은 12억 원이다. 가구 구매는 제외하며 2025년 분리 내역의 공사와 동일 범위다.",
+      "published_at": "2026-10-01T04:00:00Z",
+      "available_at": "2026-10-02T09:00:00Z",
+      "family": "CONTRACT_LEDGER",
+      "rights": "OPEN",
+      "sensitivity": "PUBLIC",
+      "start": 0,
+      "end": 69,
+      "body_sha256": "31e7510cc27e8b87a95e20965de2bb3fcf038867ffa3b264162539d847951c36",
+      "source_id": "03fb89e3-69ca-5253-b7aa-9ce093ebcd25",
+      "revision_id": "90eb9a6f-c8a4-5ca2-8d75-11db26090d28",
+      "passage_id": "fef6aa2f-f821-5b48-8d4c-850b351dd5b4",
+      "submission_id": "35689863-6093-5c0b-bf8b-bb51e2aa2c7a",
+      "url": "https://fixture.example/s7"
+    },
+    {
+      "key": "S8",
+      "title": "시 보도자료 정정",
+      "body": "정정: 2026년 계약 12건 중 공개경쟁은 11건, 긴급 수의계약은 1건이다. 앞선 12건 모두 공개경쟁이라는 설명을 바로잡는다.",
+      "published_at": "2026-10-03T08:00:00Z",
+      "available_at": "2026-10-03T09:00:00Z",
+      "family": "CITY_RELEASE",
+      "rights": "OPEN",
+      "sensitivity": "PUBLIC",
+      "start": 0,
+      "end": 73,
+      "body_sha256": "e487708b0585c46b23c7aa607a400bf958ec267f67b5e630703603ea84bff3d0",
+      "source_id": "91e6d347-8cfe-5ea8-a34f-8f8c24815ab6",
+      "revision_id": "9c9dbc27-5d1a-5239-8d68-c325aa5ef104",
+      "passage_id": "77c00aef-f7a9-5b09-a053-7bd9aa4566c0",
+      "submission_id": "cf8ba61f-0fa3-5cb2-a50b-b13c7f4eb419",
+      "url": "https://fixture.example/s1"
+    }
+  ],
+  "compiler_inputs": {
+    "claims": [
+      {
+        "key": "C1",
+        "claim_id": "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+        "text": "시 보도자료는 12건 모두 공개경쟁이라고 밝혔다.",
+        "epistemic_status": "SUPPORTED_CLAIM",
+        "evidence_passage_ids": [
+          "65f73072-41a1-544a-8a65-6254baa2d0a4"
+        ],
+        "independent_source_groups": 1
+      },
+      {
+        "key": "C2",
+        "claim_id": "8c6a1716-9f11-551c-80f8-423187dbeb58",
+        "text": "2026년 계약대장에는 공개경쟁 11건과 긴급 수의계약 1건이 기록되어 있다.",
+        "epistemic_status": "SUPPORTED_CLAIM",
+        "evidence_passage_ids": [
+          "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+        ],
+        "independent_source_groups": 1
+      },
+      {
+        "key": "C3",
+        "claim_id": "2cc009ae-8d82-5a3f-9291-446dfd095961",
+        "text": "2026년 계약대장에 기록된 총 계약금액은 12억 원이다.",
+        "epistemic_status": "SUPPORTED_CLAIM",
+        "evidence_passage_ids": [
+          "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+        ],
+        "independent_source_groups": 1
+      },
+      {
+        "key": "C4",
+        "claim_id": "1b547398-ac89-5cab-8982-9c81370f5b6d",
+        "text": "2025년 요약의 15억 원은 리모델링 공사와 가구 구매를 합한 금액이다.",
+        "epistemic_status": "SUPPORTED_CLAIM",
+        "evidence_passage_ids": [
+          "a7973509-d579-519a-92e7-f43ed6a9abf5"
+        ],
+        "independent_source_groups": 1
+      }
+    ],
+    "conflicts": [
+      {
+        "key": "X1",
+        "conflict_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+        "question": "2026년 계약 12건은 모두 공개경쟁인가",
+        "reason_unresolved": "시 보도자료의 모두 공개경쟁이라는 설명과 계약대장의 수의계약 1건 기록이 일치하지 않는다. 정정 또는 예외 설명을 받지 못했다.",
+        "supporting_claim_ids": [
+          "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+        ],
+        "contradicting_claim_ids": [
+          "8c6a1716-9f11-551c-80f8-423187dbeb58"
+        ]
+      }
+    ],
+    "unknowns": [
+      {
+        "key": "U1",
+        "unknown_id": "f9602915-461c-55e0-96a1-39529a588d34",
+        "question": "비교 가능한 공사비가 얼마나 줄었고 경쟁 확대가 원인인가",
+        "why_important": "핵심 인과 주장이 제목과 결론을 좌우한다.",
+        "needed_evidence": "2025년 공사비와 가구비 분리 내역, 2026년 동일 범위 공사비, 물량과 단가 변화, 계약 방식 변경 근거",
+        "public_search_possible": true,
+        "human_reporting_needed": true,
+        "status": "NOT_RESOLVED"
+      }
+    ]
+  },
+  "product_execution_status": "NOT_RUN",
+  "raw_body_sha256": "2a73818e8009b43247ae0eff2d17054745b5724a820a042801c3da6ca9691e0b",
+  "claims": [
+    {
+      "key": "C1",
+      "claim_id": "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+      "text": "시 보도자료는 12건 모두 공개경쟁이라고 밝혔다.",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "evidence_passage_ids": [
+        "65f73072-41a1-544a-8a65-6254baa2d0a4"
+      ],
+      "independent_source_groups": 1,
+      "status": "COMMITTED",
+      "passage_ids": [
+        "65f73072-41a1-544a-8a65-6254baa2d0a4"
+      ]
+    },
+    {
+      "key": "C2",
+      "claim_id": "8c6a1716-9f11-551c-80f8-423187dbeb58",
+      "text": "2026년 계약대장에는 공개경쟁 11건과 긴급 수의계약 1건이 기록되어 있다.",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "evidence_passage_ids": [
+        "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+      ],
+      "independent_source_groups": 1,
+      "status": "COMMITTED",
+      "passage_ids": [
+        "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+      ]
+    },
+    {
+      "key": "C3",
+      "claim_id": "2cc009ae-8d82-5a3f-9291-446dfd095961",
+      "text": "2026년 계약대장에 기록된 총 계약금액은 12억 원이다.",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "evidence_passage_ids": [
+        "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+      ],
+      "independent_source_groups": 1,
+      "status": "COMMITTED",
+      "passage_ids": [
+        "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+      ]
+    },
+    {
+      "key": "C4",
+      "claim_id": "1b547398-ac89-5cab-8982-9c81370f5b6d",
+      "text": "2025년 요약의 15억 원은 리모델링 공사와 가구 구매를 합한 금액이다.",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "evidence_passage_ids": [
+        "a7973509-d579-519a-92e7-f43ed6a9abf5"
+      ],
+      "independent_source_groups": 1,
+      "status": "COMMITTED",
+      "passage_ids": [
+        "a7973509-d579-519a-92e7-f43ed6a9abf5"
+      ]
+    },
+    {
+      "key": "C5",
+      "claim_id": "0ce5b021-2007-570c-a581-33e89944484e",
+      "text": "2025년 동일 범위 공사비는 1250000000원이다.",
+      "status": "COMMITTED",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "passage_ids": [
+        "2e278793-ca4a-5a3c-aca7-5e591c5e6aee"
+      ],
+      "scope_key": "CHEONGRAM_CONSTRUCTION"
+    },
+    {
+      "key": "C6",
+      "claim_id": "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+      "text": "2025년 가구비는 250000000원이며 공사와 합계는 1500000000원이다.",
+      "status": "COMMITTED",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "passage_ids": [
+        "2e278793-ca4a-5a3c-aca7-5e591c5e6aee"
+      ],
+      "scope_key": "CHEONGRAM_CONSTRUCTION"
+    },
+    {
+      "key": "C7",
+      "claim_id": "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96",
+      "text": "2026년 동일 범위 공사비는 1200000000원이다.",
+      "status": "COMMITTED",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "passage_ids": [
+        "fef6aa2f-f821-5b48-8d4c-850b351dd5b4"
+      ],
+      "scope_key": "CHEONGRAM_CONSTRUCTION"
+    },
+    {
+      "key": "C8",
+      "claim_id": "bb3d7694-4608-5ab9-a84f-bf2ec5256151",
+      "text": "정정된 기관 설명은 공개경쟁 11건과 긴급 수의계약 1건이다.",
+      "status": "COMMITTED",
+      "epistemic_status": "SUPPORTED_CLAIM",
+      "passage_ids": [
+        "77c00aef-f7a9-5b09-a053-7bd9aa4566c0"
+      ],
+      "scope_key": "CHEONGRAM_2026_METHOD"
+    }
+  ],
+  "unknowns": [
+    {
+      "key": "U1",
+      "unknown_id": "f9602915-461c-55e0-96a1-39529a588d34",
+      "question": "비교 가능한 공사비가 얼마나 줄었고 경쟁 확대가 원인인가",
+      "why_important": "핵심 인과 주장이 제목과 결론을 좌우한다.",
+      "needed_evidence": "2025년 공사비와 가구비 분리 내역, 2026년 동일 범위 공사비, 물량과 단가 변화, 계약 방식 변경 근거",
+      "public_search_possible": true,
+      "human_reporting_needed": true,
+      "status": "NOT_RESOLVED"
+    }
+  ],
+  "conflicts": [
+    {
+      "key": "X1",
+      "conflict_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+      "question": "2026년 계약 12건은 모두 공개경쟁인가",
+      "reason_unresolved": "시 보도자료의 모두 공개경쟁이라는 설명과 계약대장의 수의계약 1건 기록이 일치하지 않는다. 정정 또는 예외 설명을 받지 못했다.",
+      "supporting_claim_ids": [
+        "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+      ],
+      "contradicting_claim_ids": [
+        "8c6a1716-9f11-551c-80f8-423187dbeb58"
+      ]
+    }
+  ],
+  "ids": {
+    "review01": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+    "review02": "004febb2-2df4-5a11-9cf5-f8d9f20f7a31",
+    "review03": "ea94425c-bb1b-5aaa-aadf-a86df744d16b",
+    "pack02": "ff347468-732b-518a-b4fe-53cbc981b1ec",
+    "pack03": "ecdf1465-3007-51bf-ae27-8957cb33e5c6",
+    "task": "ab0007d2-5e94-5a15-b209-afb93166f477",
+    "result": "7d7d0e67-958d-51c7-9521-0ab4ee28592c",
+    "reassessment": "c2d8695f-aa40-56c2-842c-dee7c7bfa38a",
+    "delta02": "cc7200a8-5f02-55ff-9636-1cfa3c4be7d6",
+    "delta03": "4f37f98e-04f8-51a9-8d58-06d410c0009b",
+    "search": "b04b17c3-b1ca-5ec4-9726-09edbeafca98",
+    "export": "6491bb3f-3ef3-5b63-9e8a-7c40b40f0dd0",
+    "actor": "3ea0eba0-bf8f-5c51-8521-cb6ed9846354",
+    "job": "97cc7c3b-3864-50a7-bfa8-d49cbd965256",
+    "notification": "76efa05d-d368-56ca-ad55-8a5ae4c69719",
+    "question-U1a": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+    "question-U1b": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+    "brief": "25d3621d-df6d-5a21-a9c0-908997374847",
+    "source-state": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+    "source-pack": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+    "reality-execution": "00dd7662-8694-53b6-b544-d8635000b171",
+    "reality-job": "3a5e54a7-1a9f-5f0f-9442-5644babdbadd"
+  },
+  "calculation": {
+    "unit": "KRW",
+    "scope_key": "CHEONGRAM_CONSTRUCTION",
+    "previous_period": 2025,
+    "current_period": 2026,
+    "previous_amount": 1250000000,
+    "current_amount": 1200000000,
+    "excluded_furniture_amount": 250000000,
+    "previous_total": 1500000000,
+    "formula": "(previous_amount-current_amount)/previous_amount*100",
+    "exact_percent": "4",
+    "display_percent": "4.00",
+    "rounding": "ROUND_HALF_UP",
+    "scale": 2,
+    "supporting_claim_ids": [
+      "0ce5b021-2007-570c-a581-33e89944484e",
+      "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+      "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+    ]
+  },
+  "reviews": [
+    {
+      "id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+      "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+      "reality_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+      "as_of": "2026-09-30T09:00:00Z",
+      "status": "COMPLETED",
+      "row_version": 2,
+      "allow_partial": false,
+      "created_at": "2026-09-30T09:00:00Z",
+      "completed_at": "2026-09-30T09:00:00Z",
+      "error_code": null,
+      "items": [
+        {
+          "assertion_id": "679f83b6-931c-578a-9842-f4c04d9cff3e",
+          "status": "CONFLICT",
+          "claim_ids": [
+            "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+            "8c6a1716-9f11-551c-80f8-423187dbeb58"
+          ],
+          "conflict_ids": [
+            "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+          ],
+          "unknown_ids": [],
+          "reason_codes": [
+            "SCOPE_MATCHED",
+            "SOURCES_DISAGREE"
+          ],
+          "recommendation": "기관의 설명과 계약대장의 차이를 확인하기 전 모두 공개경쟁이라는 단정을 보류한다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [
+            "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+          ],
+          "contradicting_claim_ids": [
+            "8c6a1716-9f11-551c-80f8-423187dbeb58"
+          ],
+          "assertion_key": "122369e1a6b4eb8a56e9f304000aafc0bcf3cb1310d7cb26a09bacd41f4a6f11",
+          "text": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.",
+          "start": 0,
+          "end": 43,
+          "kind": "FACTUAL",
+          "subchecks": []
+        },
+        {
+          "assertion_id": "a1f2e6b9-cfa2-5f7d-9e71-0dddbfc6a863",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961",
+            "1b547398-ac89-5cab-8982-9c81370f5b6d"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [
+            "f9602915-461c-55e0-96a1-39529a588d34"
+          ],
+          "reason_codes": [
+            "NON_COMPARABLE_SCOPE",
+            "CAUSATION_NOT_ESTABLISHED"
+          ],
+          "recommendation": "20% 절감과 경쟁 확대 덕분이라는 표현을 보류하고 동일 범위 비용과 인과 근거를 취재한다.",
+          "needed_evidence": [
+            "2025년 공사비와 가구비 분리 내역",
+            "2026년 동일 범위 공사비",
+            "물량과 단가 변화",
+            "계약 방식 변경 근거"
+          ],
+          "supporting_claim_ids": [],
+          "contradicting_claim_ids": [],
+          "assertion_key": "c943b3aa7ed96e0e02fe7a11eded9f8ce33b7d34588eb7d45166dac211e6d9c5",
+          "text": "경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.",
+          "start": 44,
+          "end": 75,
+          "kind": "CAUSAL",
+          "subchecks": [
+            {
+              "kind": "NUMERIC",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [],
+              "expected_percent": "20",
+              "observed_percent": null,
+              "calculation": null,
+              "needed_evidence": [
+                "동일 범위 비용"
+              ]
+            },
+            {
+              "kind": "CAUSAL",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [],
+              "expected_percent": null,
+              "observed_percent": null,
+              "calculation": null,
+              "needed_evidence": [
+                "경쟁 확대의 인과 근거"
+              ]
+            }
+          ]
+        },
+        {
+          "assertion_id": "0aba3011-d68c-5e4f-805b-b4bcfc74d224",
+          "status": "SUPPORTED",
+          "claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [],
+          "reason_codes": [
+            "DIRECT_LEDGER_SUPPORT"
+          ],
+          "recommendation": "계약대장에 기록된 금액이라는 출처와 범위를 붙여 사용할 수 있다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "contradicting_claim_ids": [],
+          "assertion_key": "e4844994ac136851a4d5a309808aa0af6ef013ca35a36b0602a596f663e41f84",
+          "text": "2026년 총 계약금액은 12억 원이다.",
+          "start": 76,
+          "end": 98,
+          "kind": "FACTUAL",
+          "subchecks": []
+        }
+      ],
+      "questions": [
+        {
+          "id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "parent_id": null,
+          "question_key": "U1",
+          "question": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+          "required_children": [
+            "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+          ]
+        },
+        {
+          "id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1a",
+          "question": "동일 범위 공사비는 얼마나 변했는가",
+          "required_children": []
+        },
+        {
+          "id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1b",
+          "question": "경쟁 확대가 비용 변화의 원인인가",
+          "required_children": []
+        },
+        {
+          "id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "parent_id": null,
+          "question_key": "X1",
+          "question": "기관 설명과 계약대장의 차이가 해소됐는가",
+          "required_children": []
+        }
+      ],
+      "question_assessments": [
+        {
+          "id": "8b3e2fa8-a35e-5760-a2c9-db86fb5106c2",
+          "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "필요한 원문과 설명"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "34b10208-d08d-5e86-af2d-bcee7d9be50f",
+          "question_id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "필요한 원문과 설명"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "093f233f-8317-54b0-8b3b-f6037d4e4916",
+          "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "2f89f9b4-0889-560f-b7c0-96b6bf6fa599",
+          "question_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "status": "CONFLICTED",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "계약 예외와 정정 원문"
+          ],
+          "calculation": null
+        }
+      ],
+      "warnings": [
+        {
+          "code": "SOURCE_RIGHTS_EXCLUDED",
+          "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+          "object_ids": [
+            "610b5bde-643a-5a36-9652-251888e86438"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "004febb2-2df4-5a11-9cf5-f8d9f20f7a31",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+      "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+      "reality_pack_id": "ff347468-732b-518a-b4fe-53cbc981b1ec",
+      "as_of": "2026-10-02T10:00:00Z",
+      "status": "COMPLETED",
+      "row_version": 2,
+      "allow_partial": false,
+      "created_at": "2026-10-02T10:00:00Z",
+      "completed_at": "2026-10-02T10:00:00Z",
+      "error_code": null,
+      "items": [
+        {
+          "assertion_id": "679f83b6-931c-578a-9842-f4c04d9cff3e",
+          "status": "CONFLICT",
+          "claim_ids": [
+            "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+            "8c6a1716-9f11-551c-80f8-423187dbeb58"
+          ],
+          "conflict_ids": [
+            "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+          ],
+          "unknown_ids": [],
+          "reason_codes": [
+            "SCOPE_MATCHED",
+            "SOURCES_DISAGREE"
+          ],
+          "recommendation": "기관의 설명과 계약대장의 차이를 확인하기 전 모두 공개경쟁이라는 단정을 보류한다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [
+            "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+          ],
+          "contradicting_claim_ids": [
+            "8c6a1716-9f11-551c-80f8-423187dbeb58"
+          ],
+          "assertion_key": "122369e1a6b4eb8a56e9f304000aafc0bcf3cb1310d7cb26a09bacd41f4a6f11",
+          "text": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.",
+          "start": 0,
+          "end": 43,
+          "kind": "FACTUAL",
+          "subchecks": []
+        },
+        {
+          "assertion_id": "a1f2e6b9-cfa2-5f7d-9e71-0dddbfc6a863",
+          "status": "CONTRADICTED",
+          "claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [
+            "f9602915-461c-55e0-96a1-39529a588d34"
+          ],
+          "reason_codes": [
+            "NUMERIC_CLAIM_CONTRADICTED",
+            "CAUSATION_NOT_ESTABLISHED"
+          ],
+          "recommendation": "동일 범위 공사비는 4% 감소했으나 경쟁 확대가 원인인지는 추가 확인이 필요하다.",
+          "needed_evidence": [
+            "물량과 단가 변화",
+            "인과 근거"
+          ],
+          "supporting_claim_ids": [],
+          "contradicting_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "assertion_key": "c943b3aa7ed96e0e02fe7a11eded9f8ce33b7d34588eb7d45166dac211e6d9c5",
+          "text": "경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.",
+          "start": 44,
+          "end": 75,
+          "kind": "CAUSAL",
+          "subchecks": [
+            {
+              "kind": "NUMERIC",
+              "status": "CONTRADICTED",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [
+                "0ce5b021-2007-570c-a581-33e89944484e",
+                "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+              ],
+              "expected_percent": "20",
+              "observed_percent": "4",
+              "calculation": {
+                "unit": "KRW",
+                "scope_key": "CHEONGRAM_CONSTRUCTION",
+                "previous_period": 2025,
+                "current_period": 2026,
+                "previous_amount": 1250000000,
+                "current_amount": 1200000000,
+                "excluded_furniture_amount": 250000000,
+                "previous_total": 1500000000,
+                "formula": "(previous_amount-current_amount)/previous_amount*100",
+                "exact_percent": "4",
+                "display_percent": "4.00",
+                "rounding": "ROUND_HALF_UP",
+                "scale": 2,
+                "supporting_claim_ids": [
+                  "0ce5b021-2007-570c-a581-33e89944484e",
+                  "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+                  "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+                ]
+              },
+              "needed_evidence": []
+            },
+            {
+              "kind": "CAUSAL",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [],
+              "expected_percent": null,
+              "observed_percent": null,
+              "calculation": null,
+              "needed_evidence": [
+                "경쟁 확대의 인과 근거"
+              ]
+            }
+          ]
+        },
+        {
+          "assertion_id": "0aba3011-d68c-5e4f-805b-b4bcfc74d224",
+          "status": "SUPPORTED",
+          "claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [],
+          "reason_codes": [
+            "DIRECT_LEDGER_SUPPORT"
+          ],
+          "recommendation": "계약대장에 기록된 금액이라는 출처와 범위를 붙여 사용할 수 있다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "contradicting_claim_ids": [],
+          "assertion_key": "e4844994ac136851a4d5a309808aa0af6ef013ca35a36b0602a596f663e41f84",
+          "text": "2026년 총 계약금액은 12억 원이다.",
+          "start": 76,
+          "end": 98,
+          "kind": "FACTUAL",
+          "subchecks": []
+        }
+      ],
+      "questions": [
+        {
+          "id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "parent_id": null,
+          "question_key": "U1",
+          "question": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+          "required_children": [
+            "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+          ]
+        },
+        {
+          "id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1a",
+          "question": "동일 범위 공사비는 얼마나 변했는가",
+          "required_children": []
+        },
+        {
+          "id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1b",
+          "question": "경쟁 확대가 비용 변화의 원인인가",
+          "required_children": []
+        },
+        {
+          "id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "parent_id": null,
+          "question_key": "X1",
+          "question": "기관 설명과 계약대장의 차이가 해소됐는가",
+          "required_children": []
+        }
+      ],
+      "question_assessments": [
+        {
+          "id": "b727d974-be86-576e-9bcb-359b2b3cc466",
+          "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "status": "PARTIALLY_RESOLVED",
+          "resolution_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "934c97a3-b784-5f94-8edd-d78df1d2c872",
+          "question_id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "status": "RESOLVED",
+          "resolution_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [],
+          "calculation": {
+            "unit": "KRW",
+            "scope_key": "CHEONGRAM_CONSTRUCTION",
+            "previous_period": 2025,
+            "current_period": 2026,
+            "previous_amount": 1250000000,
+            "current_amount": 1200000000,
+            "excluded_furniture_amount": 250000000,
+            "previous_total": 1500000000,
+            "formula": "(previous_amount-current_amount)/previous_amount*100",
+            "exact_percent": "4",
+            "display_percent": "4.00",
+            "rounding": "ROUND_HALF_UP",
+            "scale": 2,
+            "supporting_claim_ids": [
+              "0ce5b021-2007-570c-a581-33e89944484e",
+              "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+              "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+            ]
+          }
+        },
+        {
+          "id": "90c35107-22fe-50d7-8321-52ed3bfa1b37",
+          "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "54d78233-e1b7-538a-911d-06163cf66340",
+          "question_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "status": "CONFLICTED",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "계약 예외와 정정 원문"
+          ],
+          "calculation": null
+        }
+      ],
+      "warnings": [
+        {
+          "code": "SOURCE_RIGHTS_EXCLUDED",
+          "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+          "object_ids": [
+            "610b5bde-643a-5a36-9652-251888e86438"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea94425c-bb1b-5aaa-aadf-a86df744d16b",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "content_version_id": "7a0556ed-9a45-5464-bc87-3d1dcda98ce7",
+      "state_version_id": "9c8af080-8df4-5fd0-a1c6-c6c6e6e6127d",
+      "reality_pack_id": "ecdf1465-3007-51bf-ae27-8957cb33e5c6",
+      "as_of": "2026-10-03T10:00:00Z",
+      "status": "COMPLETED",
+      "row_version": 2,
+      "allow_partial": false,
+      "created_at": "2026-10-03T10:00:00Z",
+      "completed_at": "2026-10-03T10:00:00Z",
+      "error_code": null,
+      "items": [
+        {
+          "assertion_id": "679f83b6-931c-578a-9842-f4c04d9cff3e",
+          "status": "CONTRADICTED",
+          "claim_ids": [
+            "8c6a1716-9f11-551c-80f8-423187dbeb58",
+            "bb3d7694-4608-5ab9-a84f-bf2ec5256151"
+          ],
+          "conflict_ids": [
+            "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+          ],
+          "unknown_ids": [],
+          "reason_codes": [
+            "SOURCE_CORRECTION_CONFIRMED"
+          ],
+          "recommendation": "공개경쟁 11건과 긴급 수의계약 1건으로 고치고 정정 자료와 계약대장을 함께 밝힌다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [],
+          "contradicting_claim_ids": [
+            "8c6a1716-9f11-551c-80f8-423187dbeb58",
+            "bb3d7694-4608-5ab9-a84f-bf2ec5256151"
+          ],
+          "assertion_key": "122369e1a6b4eb8a56e9f304000aafc0bcf3cb1310d7cb26a09bacd41f4a6f11",
+          "text": "청람시는 2026년 도서관 리모델링 계약 12건을 모두 공개경쟁으로 체결했다.",
+          "start": 0,
+          "end": 43,
+          "kind": "FACTUAL",
+          "subchecks": []
+        },
+        {
+          "assertion_id": "a1f2e6b9-cfa2-5f7d-9e71-0dddbfc6a863",
+          "status": "CONTRADICTED",
+          "claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [
+            "f9602915-461c-55e0-96a1-39529a588d34"
+          ],
+          "reason_codes": [
+            "NUMERIC_CLAIM_CONTRADICTED",
+            "CAUSATION_NOT_ESTABLISHED"
+          ],
+          "recommendation": "동일 범위 공사비는 4% 감소했으나 경쟁 확대가 원인인지는 추가 확인이 필요하다.",
+          "needed_evidence": [
+            "물량과 단가 변화",
+            "인과 근거"
+          ],
+          "supporting_claim_ids": [],
+          "contradicting_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "assertion_key": "c943b3aa7ed96e0e02fe7a11eded9f8ce33b7d34588eb7d45166dac211e6d9c5",
+          "text": "경쟁 확대 덕분에 총 계약금액은 전년보다 20% 줄었다.",
+          "start": 44,
+          "end": 75,
+          "kind": "CAUSAL",
+          "subchecks": [
+            {
+              "kind": "NUMERIC",
+              "status": "CONTRADICTED",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [
+                "0ce5b021-2007-570c-a581-33e89944484e",
+                "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+              ],
+              "expected_percent": "20",
+              "observed_percent": "4",
+              "calculation": {
+                "unit": "KRW",
+                "scope_key": "CHEONGRAM_CONSTRUCTION",
+                "previous_period": 2025,
+                "current_period": 2026,
+                "previous_amount": 1250000000,
+                "current_amount": 1200000000,
+                "excluded_furniture_amount": 250000000,
+                "previous_total": 1500000000,
+                "formula": "(previous_amount-current_amount)/previous_amount*100",
+                "exact_percent": "4",
+                "display_percent": "4.00",
+                "rounding": "ROUND_HALF_UP",
+                "scale": 2,
+                "supporting_claim_ids": [
+                  "0ce5b021-2007-570c-a581-33e89944484e",
+                  "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+                  "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+                ]
+              },
+              "needed_evidence": []
+            },
+            {
+              "kind": "CAUSAL",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "supporting_claim_ids": [],
+              "contradicting_claim_ids": [],
+              "expected_percent": null,
+              "observed_percent": null,
+              "calculation": null,
+              "needed_evidence": [
+                "경쟁 확대의 인과 근거"
+              ]
+            }
+          ]
+        },
+        {
+          "assertion_id": "0aba3011-d68c-5e4f-805b-b4bcfc74d224",
+          "status": "SUPPORTED",
+          "claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "conflict_ids": [],
+          "unknown_ids": [],
+          "reason_codes": [
+            "DIRECT_LEDGER_SUPPORT"
+          ],
+          "recommendation": "계약대장에 기록된 금액이라는 출처와 범위를 붙여 사용할 수 있다.",
+          "needed_evidence": [],
+          "supporting_claim_ids": [
+            "2cc009ae-8d82-5a3f-9291-446dfd095961"
+          ],
+          "contradicting_claim_ids": [],
+          "assertion_key": "e4844994ac136851a4d5a309808aa0af6ef013ca35a36b0602a596f663e41f84",
+          "text": "2026년 총 계약금액은 12억 원이다.",
+          "start": 76,
+          "end": 98,
+          "kind": "FACTUAL",
+          "subchecks": []
+        }
+      ],
+      "questions": [
+        {
+          "id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "parent_id": null,
+          "question_key": "U1",
+          "question": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+          "required_children": [
+            "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+          ]
+        },
+        {
+          "id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1a",
+          "question": "동일 범위 공사비는 얼마나 변했는가",
+          "required_children": []
+        },
+        {
+          "id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1b",
+          "question": "경쟁 확대가 비용 변화의 원인인가",
+          "required_children": []
+        },
+        {
+          "id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "parent_id": null,
+          "question_key": "X1",
+          "question": "기관 설명과 계약대장의 차이가 해소됐는가",
+          "required_children": []
+        }
+      ],
+      "question_assessments": [
+        {
+          "id": "497ac93c-ccab-5e8a-8efb-995c637faef0",
+          "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "status": "PARTIALLY_RESOLVED",
+          "resolution_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "0a1190a0-018a-50ba-831c-f040f86aa5b7",
+          "question_id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "status": "RESOLVED",
+          "resolution_claim_ids": [
+            "0ce5b021-2007-570c-a581-33e89944484e",
+            "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+          ],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [],
+          "calculation": {
+            "unit": "KRW",
+            "scope_key": "CHEONGRAM_CONSTRUCTION",
+            "previous_period": 2025,
+            "current_period": 2026,
+            "previous_amount": 1250000000,
+            "current_amount": 1200000000,
+            "excluded_furniture_amount": 250000000,
+            "previous_total": 1500000000,
+            "formula": "(previous_amount-current_amount)/previous_amount*100",
+            "exact_percent": "4",
+            "display_percent": "4.00",
+            "rounding": "ROUND_HALF_UP",
+            "scale": 2,
+            "supporting_claim_ids": [
+              "0ce5b021-2007-570c-a581-33e89944484e",
+              "32006bd0-6a1a-5aab-9fc8-448e665f5e08",
+              "86fcae53-d3f1-5192-ba7f-9f0b53c0ed96"
+            ]
+          }
+        },
+        {
+          "id": "ade8adcb-e39d-5b82-8711-4465d1778a08",
+          "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "44db34ed-354f-53ed-b32c-9d6d32c0ba9e",
+          "question_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "status": "RESOLVED",
+          "resolution_claim_ids": [
+            "8c6a1716-9f11-551c-80f8-423187dbeb58",
+            "bb3d7694-4608-5ab9-a84f-bf2ec5256151"
+          ],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [],
+          "calculation": null
+        }
+      ],
+      "warnings": [
+        {
+          "code": "SOURCE_RIGHTS_EXCLUDED",
+          "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+          "object_ids": [
+            "610b5bde-643a-5a36-9652-251888e86438"
+          ]
+        }
+      ]
+    }
+  ],
+  "draftless_flow": {
+    "reality_execution": {
+      "id": "00dd7662-8694-53b6-b544-d8635000b171",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "job_id": "3a5e54a7-1a9f-5f0f-9442-5644babdbadd",
+      "mode": "SOURCE_REVIEW",
+      "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+      "content_version_id": null,
+      "baseline_pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+      "submission_ids": [
+        "9eaec010-4770-5d0f-a142-def60f378d26",
+        "ee0758dd-f864-5fd0-81f3-580c61558b40",
+        "391ed7db-0426-5c3e-9168-d04eef5af01d",
+        "1c07ce51-94de-53c6-ae93-7fddc79dd0d0"
+      ],
+      "reporting_result_ids": [],
+      "as_of": "2026-09-30T09:10:00Z",
+      "allow_partial": false,
+      "parameters": {
+        "query_budget": 10,
+        "source_budget": 20,
+        "language": "ko"
+      },
+      "status": "COMPLETED",
+      "stage": "TERMINAL",
+      "result_pack_id": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+      "head_updated": true,
+      "warnings": [
+        {
+          "code": "SOURCE_RIGHTS_EXCLUDED",
+          "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+          "object_ids": [
+            "610b5bde-643a-5a36-9652-251888e86438"
+          ]
+        }
+      ],
+      "error_code": null,
+      "created_at": "2026-09-30T09:10:00Z",
+      "completed_at": "2026-09-30T09:10:10Z"
+    },
+    "brief": {
+      "id": "25d3621d-df6d-5a21-a9c0-908997374847",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+      "content_version_id": null,
+      "reality_pack_id": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+      "as_of": "2026-09-30T09:10:00Z",
+      "status": "COMPLETED",
+      "sections": [
+        {
+          "section": "DECISION",
+          "items": [
+            {
+              "id": "6bdb1fb8-aa70-575c-a5ea-097defbd6fcb",
+              "text": "기관 설명과 계약대장의 계약 방식이 다르다.",
+              "kind": "EDITORIAL_DECISION",
+              "epistemic_status": "CONFLICT",
+              "rank": 1,
+              "score": 0.685,
+              "claim_ids": [
+                "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+                "8c6a1716-9f11-551c-80f8-423187dbeb58"
+              ],
+              "conflict_ids": [
+                "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+              ],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "65f73072-41a1-544a-8a65-6254baa2d0a4",
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "REALITY",
+                "DISPUTED",
+                "DECISION_FIRST"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [
+                "관련 원문과 설명"
+              ],
+              "why_this": {
+                "reason_codes": [
+                  "CONFLICT_PRESENT"
+                ],
+                "source_object_type": "CONFLICT",
+                "source_object_ids": [
+                  "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.9,
+                  "novelty": 0.65,
+                  "verifiability": 0.55,
+                  "evidence_integrity": 0.75,
+                  "urgency": 0.2
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "15dd2eea-55fa-55aa-acd4-a734c3d2b74d",
+              "text": "시 보도자료는 12건 모두 공개경쟁이라고 밝혔다.",
+              "kind": "EDITORIAL_DECISION",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 2,
+              "score": 0.6425,
+              "claim_ids": [
+                "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "65f73072-41a1-544a-8a65-6254baa2d0a4"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED",
+                "DECISION_FIRST"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "2a4f7b86-432d-5aa9-8f84-59f79a4ecb30",
+              "text": "2026년 계약대장에는 공개경쟁 11건과 긴급 수의계약 1건이 기록되어 있다.",
+              "kind": "EDITORIAL_DECISION",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 3,
+              "score": 0.6425,
+              "claim_ids": [
+                "8c6a1716-9f11-551c-80f8-423187dbeb58"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED",
+                "DECISION_FIRST"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "8c6a1716-9f11-551c-80f8-423187dbeb58"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            }
+          ]
+        },
+        {
+          "section": "WHAT_WE_KNOW",
+          "items": [
+            {
+              "id": "e14d63d5-b8e5-5d93-8404-bf948ad4eb14",
+              "text": "시 보도자료는 12건 모두 공개경쟁이라고 밝혔다.",
+              "kind": "REALITY_CLAIM",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 1,
+              "score": 0.6425,
+              "claim_ids": [
+                "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "65f73072-41a1-544a-8a65-6254baa2d0a4"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "624eb337-6577-5f85-a273-dbbd176189c6",
+              "text": "2026년 계약대장에는 공개경쟁 11건과 긴급 수의계약 1건이 기록되어 있다.",
+              "kind": "REALITY_CLAIM",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 2,
+              "score": 0.6425,
+              "claim_ids": [
+                "8c6a1716-9f11-551c-80f8-423187dbeb58"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "8c6a1716-9f11-551c-80f8-423187dbeb58"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "e848a704-c8ea-564d-b890-bec5f63c8d66",
+              "text": "2026년 계약대장에 기록된 총 계약금액은 12억 원이다.",
+              "kind": "REALITY_CLAIM",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 3,
+              "score": 0.6425,
+              "claim_ids": [
+                "2cc009ae-8d82-5a3f-9291-446dfd095961"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "2cc009ae-8d82-5a3f-9291-446dfd095961"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "5c480515-475c-5587-b4ca-5b3e2d3ca7a7",
+              "text": "2025년 요약의 15억 원은 리모델링 공사와 가구 구매를 합한 금액이다.",
+              "kind": "REALITY_CLAIM",
+              "epistemic_status": "SUPPORTED_CLAIM",
+              "rank": 4,
+              "score": 0.6425,
+              "claim_ids": [
+                "1b547398-ac89-5cab-8982-9c81370f5b6d"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "a7973509-d579-519a-92e7-f43ed6a9abf5"
+              ],
+              "labels": [
+                "REALITY",
+                "GROUNDED"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "EVIDENCE_GROUNDED"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "1b547398-ac89-5cab-8982-9c81370f5b6d"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            }
+          ]
+        },
+        {
+          "section": "WHAT_IS_DISPUTED",
+          "items": [
+            {
+              "id": "5f460671-e28c-5892-a88d-adf6c0cca116",
+              "text": "기관 설명과 계약대장의 계약 방식이 다르다.",
+              "kind": "CONFLICT",
+              "epistemic_status": "CONFLICT",
+              "rank": 1,
+              "score": 0.685,
+              "claim_ids": [
+                "dcbfa796-22ea-508d-84cd-e596dd13afa9",
+                "8c6a1716-9f11-551c-80f8-423187dbeb58"
+              ],
+              "conflict_ids": [
+                "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+              ],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "65f73072-41a1-544a-8a65-6254baa2d0a4",
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "REALITY",
+                "DISPUTED"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [
+                "관련 원문과 설명"
+              ],
+              "why_this": {
+                "reason_codes": [
+                  "CONFLICT_PRESENT"
+                ],
+                "source_object_type": "CONFLICT",
+                "source_object_ids": [
+                  "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.9,
+                  "novelty": 0.65,
+                  "verifiability": 0.55,
+                  "evidence_integrity": 0.75,
+                  "urgency": 0.2
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            }
+          ]
+        },
+        {
+          "section": "WHAT_IS_STILL_UNKNOWN",
+          "items": [
+            {
+              "id": "538615ac-5a77-5a9e-98fb-7787b7faf7c1",
+              "text": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+              "kind": "UNKNOWN",
+              "epistemic_status": "NOT_RESOLVED",
+              "rank": 1,
+              "score": 0.5875,
+              "claim_ids": [],
+              "conflict_ids": [],
+              "unknown_ids": [
+                "f9602915-461c-55e0-96a1-39529a588d34"
+              ],
+              "evidence_passage_ids": [],
+              "labels": [
+                "REALITY",
+                "UNKNOWN"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [
+                "관련 원문과 설명"
+              ],
+              "why_this": {
+                "reason_codes": [
+                  "UNKNOWN_PRESENT"
+                ],
+                "source_object_type": "UNKNOWN",
+                "source_object_ids": [
+                  "f9602915-461c-55e0-96a1-39529a588d34"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.8,
+                  "verifiability": 0.35,
+                  "evidence_integrity": 0.55,
+                  "urgency": 0.35
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            }
+          ]
+        },
+        {
+          "section": "STRONG_COUNTER_FRAMES",
+          "items": [
+            {
+              "id": "07960841-20f5-5f5f-a86e-e7c77c7b60bf",
+              "text": "반론 프레임: ‘시 보도자료는 12건 모두 공개경쟁이라고 밝혔다.’라는 근거의 범위·시점·출처 독립성이 충분한지 반박 관점에서 재검토할 수 있다.",
+              "kind": "COUNTER_FRAME",
+              "epistemic_status": "HYPOTHESIS",
+              "rank": 1,
+              "score": 0.514,
+              "claim_ids": [
+                "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "65f73072-41a1-544a-8a65-6254baa2d0a4"
+              ],
+              "labels": [
+                "SYNTHETIC_INTERPRETATION",
+                "NOT_AUDIENCE_PREDICTION",
+                "NOT_FACT"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "COUNTER_FRAME_BASELINE"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "dcbfa796-22ea-508d-84cd-e596dd13afa9"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "0ff027bf-65c5-51c7-8656-4f86c9e3f713",
+              "text": "반론 프레임: ‘2026년 계약대장에는 공개경쟁 11건과 긴급 수의계약 1건이 기록되어 있다.’라는 근거의 범위·시점·출처 독립성이 충분한지 반박 관점에서 재검토할 수 있다.",
+              "kind": "COUNTER_FRAME",
+              "epistemic_status": "HYPOTHESIS",
+              "rank": 2,
+              "score": 0.514,
+              "claim_ids": [
+                "8c6a1716-9f11-551c-80f8-423187dbeb58"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "SYNTHETIC_INTERPRETATION",
+                "NOT_AUDIENCE_PREDICTION",
+                "NOT_FACT"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "COUNTER_FRAME_BASELINE"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "8c6a1716-9f11-551c-80f8-423187dbeb58"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            },
+            {
+              "id": "b3166ac3-1465-5f5c-8ff1-058793503746",
+              "text": "반론 프레임: ‘2026년 계약대장에 기록된 총 계약금액은 12억 원이다.’라는 근거의 범위·시점·출처 독립성이 충분한지 반박 관점에서 재검토할 수 있다.",
+              "kind": "COUNTER_FRAME",
+              "epistemic_status": "HYPOTHESIS",
+              "rank": 3,
+              "score": 0.514,
+              "claim_ids": [
+                "2cc009ae-8d82-5a3f-9291-446dfd095961"
+              ],
+              "conflict_ids": [],
+              "unknown_ids": [],
+              "evidence_passage_ids": [
+                "bb0cb575-18f4-5d9c-a98a-26d9f14d604e"
+              ],
+              "labels": [
+                "SYNTHETIC_INTERPRETATION",
+                "NOT_AUDIENCE_PREDICTION",
+                "NOT_FACT"
+              ],
+              "reason": "고정 근거의 범위와 편집상 중요도",
+              "needed_evidence": [],
+              "why_this": {
+                "reason_codes": [
+                  "COUNTER_FRAME_BASELINE"
+                ],
+                "source_object_type": "CLAIM",
+                "source_object_ids": [
+                  "2cc009ae-8d82-5a3f-9291-446dfd095961"
+                ],
+                "ranking_factors": {
+                  "materiality": 0.75,
+                  "novelty": 0.5,
+                  "verifiability": 0.9,
+                  "evidence_integrity": 0.65,
+                  "urgency": 0
+                },
+                "summary": "범위·근거와 기존 고정 가중치의 선택 기준"
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "parent_id": null,
+          "question_key": "U1",
+          "question": "비교 가능한 공사비와 경쟁 확대의 인과를 확인할 수 있는가",
+          "required_children": [
+            "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+          ]
+        },
+        {
+          "id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1a",
+          "question": "동일 범위 공사비는 얼마나 변했는가",
+          "required_children": []
+        },
+        {
+          "id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "parent_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "question_key": "U1b",
+          "question": "경쟁 확대가 비용 변화의 원인인가",
+          "required_children": []
+        },
+        {
+          "id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "parent_id": null,
+          "question_key": "X1",
+          "question": "기관 설명과 계약대장의 차이가 해소됐는가",
+          "required_children": []
+        }
+      ],
+      "question_assessments": [
+        {
+          "id": "b8671ebb-80ea-51bf-b0b3-4d9f0761300b",
+          "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "필요한 원문과 설명"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "925132df-b38e-541b-9173-39b22505256f",
+          "question_id": "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "필요한 원문과 설명"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "54bbbd84-a389-59fb-af52-70b99d7ff9ae",
+          "question_id": "e0b2c96e-c534-5b24-a15c-8b89a7c33e45",
+          "status": "OPEN",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "경쟁 확대의 인과 근거"
+          ],
+          "calculation": null
+        },
+        {
+          "id": "8844f75c-0806-51ea-95b1-dca423bf7d22",
+          "question_id": "735e8964-c65e-59cc-9807-39b9ac68e6bf",
+          "status": "CONFLICTED",
+          "resolution_claim_ids": [],
+          "reason": "고정 근거의 범위와 필요한 하위 질문을 검증한 기대 평가",
+          "needed_evidence": [
+            "계약 예외와 정정 원문"
+          ],
+          "calculation": null
+        }
+      ],
+      "action_overlay": [
+        {
+          "question_id": "f9602915-461c-55e0-96a1-39529a588d34",
+          "action": "동일 범위 공사비와 경쟁 확대의 인과 근거를 요청한다.",
+          "ask_role": "계약 자료를 보유한 담당 부서",
+          "provenance": "U1 필요자료에 따른 기관 역할 제안",
+          "labels": [
+            "EDITORIAL_ACTION",
+            "NOT_FACT"
+          ]
+        }
+      ],
+      "warnings": [
+        {
+          "code": "SOURCE_RIGHTS_EXCLUDED",
+          "message": "권한 미확인 S5 전문은 근거에서 제외했다.",
+          "object_ids": [
+            "610b5bde-643a-5a36-9652-251888e86438"
+          ]
+        }
+      ],
+      "created_at": "2026-09-30T09:10:10Z"
+    },
+    "task": {
+      "id": "e31b3c70-b646-51f7-aef7-c4d012407fd3",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "review_id": null,
+      "brief_id": "25d3621d-df6d-5a21-a9c0-908997374847",
+      "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+      "content_version_id": null,
+      "reality_pack_id": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+      "title": "계약 예외와 동일 범위 비용 확인",
+      "questions": [
+        "수의계약 1건의 사유와 보도자료 정정 여부",
+        "2025년 공사비와 가구비 분리 내역",
+        "계약 방식 변경과 금액 변화의 인과 근거"
+      ],
+      "assertion_ids": [],
+      "conflict_ids": [
+        "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+      ],
+      "unknown_ids": [
+        "f9602915-461c-55e0-96a1-39529a588d34"
+      ],
+      "assignee_id": null,
+      "status": "OPEN",
+      "row_version": 1,
+      "created_at": "2026-09-30T09:10:10Z",
+      "updated_at": "2026-09-30T09:10:10Z"
+    },
+    "submissions": [
+      {
+        "id": "9eaec010-4770-5d0f-a142-def60f378d26",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "title": "시 보도자료",
+        "source_url": "https://fixture.example/s1",
+        "transcript_locator": null,
+        "content_version_id": "2123526f-1f30-5eb0-a0cf-096ed09634c7",
+        "body_sha256": "fecf89a7ee043b7ee3100422d5a1b66b11bd2d48c48def712db5c9f8ea8e3eeb",
+        "recorded_at": "2026-09-01T00:00:00Z",
+        "received_at": "2026-09-30T09:05:00Z",
+        "sensitivity": "PUBLIC",
+        "rights_class": "OPEN",
+        "access_mode": "FULL_TEXT",
+        "status": "ACCEPTED",
+        "source_id": "91e6d347-8cfe-5ea8-a34f-8f8c24815ab6",
+        "revision_id": "634b5ff4-80d7-50d0-a363-32a45531f32c"
+      },
+      {
+        "id": "ee0758dd-f864-5fd0-81f3-580c61558b40",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "title": "2026년 계약대장",
+        "source_url": "https://fixture.example/s2",
+        "transcript_locator": null,
+        "content_version_id": "67a32a03-483b-50f2-8384-6970da0a7c91",
+        "body_sha256": "d17a4058c20ecb8e0a75120a4584a6ea8edab5a78478ec1870b86933bfe455bf",
+        "recorded_at": "2026-09-02T00:00:00Z",
+        "received_at": "2026-09-30T09:05:00Z",
+        "sensitivity": "PUBLIC",
+        "rights_class": "OPEN",
+        "access_mode": "FULL_TEXT",
+        "status": "ACCEPTED",
+        "source_id": "2812e586-64e9-581a-b132-71f0a7dd0a17",
+        "revision_id": "251ca71c-c86c-542d-844c-056fc9868a5d"
+      },
+      {
+        "id": "391ed7db-0426-5c3e-9168-d04eef5af01d",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "title": "2025년 지출 요약",
+        "source_url": "https://fixture.example/s3",
+        "transcript_locator": null,
+        "content_version_id": "5d4af56f-76f0-5c1a-a241-10e4d0e51c02",
+        "body_sha256": "3879ac5ddd56ad718543bb6bb01074e00bba9003f76857af5564e59b5e2d26f8",
+        "recorded_at": "2025-12-31T00:00:00Z",
+        "received_at": "2026-09-30T09:05:00Z",
+        "sensitivity": "PUBLIC",
+        "rights_class": "OPEN",
+        "access_mode": "FULL_TEXT",
+        "status": "ACCEPTED",
+        "source_id": "6291a962-56ca-5f8a-ad08-2e72874c09fe",
+        "revision_id": "6f8661c5-6854-50ae-bf13-46e7428bf544"
+      },
+      {
+        "id": "1c07ce51-94de-53c6-ae93-7fddc79dd0d0",
+        "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+        "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+        "title": "보도자료 재게시",
+        "source_url": "https://fixture.example/s4",
+        "transcript_locator": null,
+        "content_version_id": "62fc3b54-47fb-54f9-ac62-496e30e47783",
+        "body_sha256": "fecf89a7ee043b7ee3100422d5a1b66b11bd2d48c48def712db5c9f8ea8e3eeb",
+        "recorded_at": "2026-09-03T00:00:00Z",
+        "received_at": "2026-09-30T09:05:00Z",
+        "sensitivity": "PUBLIC",
+        "rights_class": "OPEN",
+        "access_mode": "FULL_TEXT",
+        "status": "ACCEPTED",
+        "source_id": "40fd9222-8e8c-5511-92f9-1298f545355d",
+        "revision_id": "8a2111ca-812f-5dab-b9ab-99cc9bfe0883"
+      }
+    ],
+    "state_version": {
+      "id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "version_number": 2,
+      "state": {
+        "primary_editorial_question": "계약 경쟁 확대와 비용 절감 주장을 기사에 쓸 수 있는가"
+      },
+      "reason": "SWITCH_TO_SOURCE_REVIEW",
+      "created_at": "2026-09-30T09:06:00Z"
+    },
+    "head_at_submit": {
+      "pack_id": "85ae19a3-dcd4-5176-b383-93060bb8339b",
+      "review_id": "2a7dc6c7-84e6-5b6c-8d5f-5271d13ce4b2",
+      "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+      "content_version_id": null,
+      "row_version": 2
+    }
+  }
+}

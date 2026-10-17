@@ -1,0 +1,207 @@
+{
+ "createCaseIntake": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/case-intakes",
+  "title": "새 기획 입력"
+ },
+ "appendCaseIntake": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/intakes",
+  "title": "기존 기획 입력 갱신"
+ },
+ "listCases": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases",
+  "title": "기획 목록 조회"
+ },
+ "getCase": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}",
+  "title": "기획과 활성 입력 조회"
+ },
+ "listContentVersions": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/content-versions",
+  "title": "입력 원본 버전 조회"
+ },
+ "listStateVersions": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/state-versions",
+  "title": "질문 상태 버전 조회"
+ },
+ "createDraftReview": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/draft-reviews",
+  "title": "초안 검토 접수"
+ },
+ "getDraftReview": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/draft-reviews/{review_id}",
+  "title": "초안 검토 조회"
+ },
+ "createReportingTask": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-tasks",
+  "title": "취재 과제 생성"
+ },
+ "listReportingTasks": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-tasks",
+  "title": "취재 과제 목록"
+ },
+ "getReportingTask": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-tasks/{task_id}",
+  "title": "취재 과제 상세"
+ },
+ "updateReportingTask": {
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-tasks/{task_id}",
+  "title": "취재 과제 종료"
+ },
+ "createEvidenceSubmission": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/evidence-submissions",
+  "title": "공개 원문 등록"
+ },
+ "getEvidenceSubmission": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/evidence-submissions/{submission_id}",
+  "title": "등록 원문 메타데이터 조회"
+ },
+ "createReportingResult": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-results",
+  "title": "취재 결과 등록"
+ },
+ "getReportingResult": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reporting-results/{result_id}",
+  "title": "취재 결과 조회"
+ },
+ "createReassessment": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reassessments",
+  "title": "취재 후 재검토 접수"
+ },
+ "getReassessment": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reassessments/{reassessment_id}",
+  "title": "재검토 실행 조회"
+ },
+ "getReviewDelta": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/review-deltas/{delta_id}",
+  "title": "이전 검토와 새 검토 비교"
+ },
+ "createResearchSearch": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/research-searches",
+  "title": "미해결 질문 검색 접수"
+ },
+ "getResearchSearch": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/research-searches/{search_id}",
+  "title": "검색 진행과 범위 조회"
+ },
+ "listNotifications": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/notifications",
+  "title": "기획 변경 알림 조회"
+ },
+ "markNotificationRead": {
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/notifications/{notification_id}",
+  "title": "본인 알림 읽음 기록"
+ },
+ "createEditorialExport": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-exports",
+  "title": "고정 결과 보고서 생성 접수"
+ },
+ "getEditorialExport": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-exports/{export_id}",
+  "title": "보고서 생성 상태 조회"
+ },
+ "downloadEditorialExport": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-exports/{export_id}/file",
+  "title": "보고서 실제 파일 다운로드"
+ },
+ "createRealityExecution": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reality-executions",
+  "title": "세 모드의 근거 실행 접수"
+ },
+ "getRealityExecution": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reality-executions/{execution_id}",
+  "title": "근거 실행 상태 조회"
+ },
+ "createEditorialBrief": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-briefs",
+  "title": "고정 근거의 기획 요약 생성"
+ },
+ "getEditorialBrief": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-briefs/{brief_id}",
+  "title": "기획 요약과 취재 행동 조회"
+ },
+ "whoami": {
+  "method": "GET",
+  "path": "/api/v1/me",
+  "title": "인증 주체 확인"
+ },
+ "listWorkspaceMembers": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/members",
+  "title": "workspace 구성원 조회"
+ },
+ "getRealityBoard": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reality-packs/{pack_id}/board",
+  "title": "근거 판 조회"
+ },
+ "getEvidenceTrace": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/reality-packs/{pack_id}/claims/{claim_id}/trace",
+  "title": "근거 경로 조회"
+ },
+ "listAuditEvents": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/audit-events",
+  "title": "감사 이력 조회"
+ },
+ "getMonitoringPolicy": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/monitoring-policy",
+  "title": "모니터링 정책 조회"
+ },
+ "setMonitoringPolicy": {
+  "method": "PUT",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/monitoring-policy",
+  "title": "모니터링 정책 저장"
+ },
+ "getMonitoringFeed": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/monitoring-feed",
+  "title": "변경 피드 조회"
+ },
+ "getCaseLedger": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/ledger",
+  "title": "기획의 결과 ID 목록"
+ },
+ "getExportSnapshot": {
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/editorial-exports/{export_id}/snapshot",
+  "title": "보고서 내용 미리보기"
+ },
+ "previewSource": {
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_id}/source-preview",
+  "title": "공개 자료 주소에서 원문 가져오기"
+ }
+}

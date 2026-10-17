@@ -1,0 +1,186 @@
+{
+  "provenance": "ISOLATED_FICTIONAL_WORKFLOW_CONTRACTS_NOT_API_EXECUTION",
+  "status": "NOT_RUN",
+  "fixed_case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+  "question_only": {
+    "requests": [
+      {
+        "operation_id": "createCaseIntake",
+        "schema": "IntakeCreate",
+        "request": {
+          "mode": "QUESTION_ONLY",
+          "title": "청람시 도서관 계약 검토",
+          "question": "계약 경쟁 확대와 비용 절감 주장을 기사에 쓸 수 있는가",
+          "as_of": "2026-09-30T09:00:00Z"
+        }
+      },
+      {
+        "operation_id": "createRealityExecution",
+        "schema": "RealityExecutionCreate",
+        "request": {
+          "mode": "QUESTION_ONLY",
+          "state_version_id": "84464be4-6cbe-57ac-aded-9c994e94833a",
+          "content_version_id": null,
+          "baseline_pack_id": null,
+          "submission_ids": [],
+          "reporting_result_ids": [],
+          "as_of": "2026-09-30T09:00:00Z",
+          "allow_partial": false,
+          "parameters": {
+            "query_budget": 10,
+            "source_budget": 20,
+            "language": "ko"
+          }
+        }
+      },
+      {
+        "operation_id": "createEditorialBrief",
+        "schema": "EditorialBriefCreate",
+        "request": {
+          "state_version_id": "84464be4-6cbe-57ac-aded-9c994e94833a",
+          "reality_pack_id": "2e812d1f-ff4f-50d7-9a2a-e97089e6ad0c",
+          "content_version_id": null,
+          "allow_partial": false
+        }
+      }
+    ],
+    "id_binding": "Replace fixture state and pack IDs with each preceding real response. Examples are isolated; never infer a created resource from this file.",
+    "expected": {
+      "content_version_id": null,
+      "draft_review_created": false,
+      "brief_sections": [
+        "DECISION",
+        "WHAT_WE_KNOW",
+        "WHAT_IS_DISPUTED",
+        "WHAT_IS_STILL_UNKNOWN",
+        "STRONG_COUNTER_FRAMES"
+      ],
+      "task_origin": "BRIEF"
+    }
+  },
+  "source_initial": {
+    "reality_execution_id": "00dd7662-8694-53b6-b544-d8635000b171",
+    "brief_id": "25d3621d-df6d-5a21-a9c0-908997374847",
+    "task_id": "e31b3c70-b646-51f7-aef7-c4d012407fd3",
+    "task_create": {
+      "operation_id": "createReportingTask",
+      "schema": "TaskCreate",
+      "request": {
+        "brief_id": "25d3621d-df6d-5a21-a9c0-908997374847",
+        "review_id": null,
+        "title": "계약 예외와 동일 범위 비용 확인",
+        "questions": [
+          "수의계약 1건의 사유와 보도자료 정정 여부",
+          "2025년 공사비와 가구비 분리 내역",
+          "계약 방식 변경과 금액 변화의 인과 근거"
+        ],
+        "assertion_ids": [],
+        "conflict_ids": [
+          "735e8964-c65e-59cc-9807-39b9ac68e6bf"
+        ],
+        "unknown_ids": [
+          "f9602915-461c-55e0-96a1-39529a588d34"
+        ],
+        "assignee_id": null
+      }
+    },
+    "workflow_reference": "workflow_examples.json#/draftless_editorial_brief"
+  },
+  "source_followup": {
+    "result_snapshot": {
+      "id": "6d4c2045-ba5f-54e2-9628-5cb31ad978a6",
+      "workspace_id": "9c882a3f-e5ba-581b-9234-ef5df8234b47",
+      "case_id": "a0d04dd3-a0b1-5af8-9716-6787f8b782fc",
+      "task_id": "e31b3c70-b646-51f7-aef7-c4d012407fd3",
+      "submission_ids": [
+        "0c763cec-89b1-50d1-b890-795cbc7657bd",
+        "35689863-6093-5c0b-bf8b-bb51e2aa2c7a"
+      ],
+      "note": "분리 내역 확보. 원인은 추가 확인 필요.",
+      "note_kind": "USER_NOTE",
+      "question_ids": [
+        "f9602915-461c-55e0-96a1-39529a588d34",
+        "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+        "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+      ],
+      "received_at": "2026-10-02T09:05:00Z"
+    },
+    "requests": [
+      {
+        "operation_id": "createReportingResult",
+        "schema": "ResultCreate",
+        "request": {
+          "task_id": "e31b3c70-b646-51f7-aef7-c4d012407fd3",
+          "submission_ids": [
+            "0c763cec-89b1-50d1-b890-795cbc7657bd",
+            "35689863-6093-5c0b-bf8b-bb51e2aa2c7a"
+          ],
+          "note": "분리 내역 확보. 원인은 추가 확인 필요.",
+          "question_ids": [
+            "f9602915-461c-55e0-96a1-39529a588d34",
+            "3ce2c7d9-47bf-5ed9-95f2-97dde0f0b376",
+            "e0b2c96e-c534-5b24-a15c-8b89a7c33e45"
+          ]
+        }
+      },
+      {
+        "operation_id": "createRealityExecution",
+        "schema": "RealityExecutionCreate",
+        "request": {
+          "mode": "SOURCE_REVIEW",
+          "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+          "content_version_id": null,
+          "baseline_pack_id": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+          "submission_ids": [],
+          "reporting_result_ids": [
+            "6d4c2045-ba5f-54e2-9628-5cb31ad978a6"
+          ],
+          "as_of": "2026-10-02T10:00:00Z",
+          "allow_partial": false,
+          "parameters": {
+            "query_budget": 10,
+            "source_budget": 20,
+            "language": "ko"
+          }
+        }
+      },
+      {
+        "operation_id": "createEditorialBrief",
+        "schema": "EditorialBriefCreate",
+        "request": {
+          "state_version_id": "ce34b6ba-cac3-5bc6-8ff3-5c54d2f18924",
+          "reality_pack_id": "c2a42275-0ae9-5084-92aa-8b0b04240212",
+          "content_version_id": null,
+          "allow_partial": false
+        }
+      }
+    ],
+    "expected": {
+      "baseline_pack_id": "424c6e89-a7a3-5194-9255-9ac95ea25bc4",
+      "result_pack_id": "c2a42275-0ae9-5084-92aa-8b0b04240212",
+      "content_version_id": null,
+      "draft_review_created": false,
+      "known_claim_keys": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "question_statuses": {
+        "U1": "PARTIALLY_RESOLVED",
+        "U1a": "RESOLVED",
+        "U1b": "OPEN",
+        "X1": "CONFLICTED"
+      },
+      "exact_percent": "4",
+      "display_percent": "4.00",
+      "before_brief_preserved": true,
+      "after_brief_pinned_to_child_pack": true,
+      "output_input_kind": "BRIEF"
+    },
+    "id_binding": "Use actual submission/result/child pack IDs returned by the previous API. These UUIDs are expected test data only."
+  }
+}
