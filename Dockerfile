@@ -1,6 +1,6 @@
 # Audience Lab — one service: the FastAPI core serves the built web app (Render).
 # 1) web app
-FROM node:20-slim AS web
+FROM node:22-slim AS web
 WORKDIR /w
 COPY apps/web/package.json apps/web/package-lock.json ./
 RUN npm ci --no-audit --no-fund

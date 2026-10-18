@@ -190,8 +190,11 @@ export function kst(isoString, withSeconds = false) {
 }
 export const utcShort = (isoString) => (isoString ? isoString.replace('T', ' ').replace(':00Z', 'Z') : '');
 export const shortId = (id) => (id ? id.slice(0, 8) : '없음');
+// "1,250,000,000원 (12.5억 원)", "500,000원 (50만 원)", "9,000원"; mirrors report/labels.py
+const shortNum = (x) => (Number.isInteger(x) ? x : x.toFixed(1).replace(/\.0$/, ''));
 export function won(n) {
   const s = String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  const eok = n / 100000000;
-  return `${s}원 (${Number.isInteger(eok) ? eok : eok.toFixed(1).replace(/\.0$/, '')}억 원)`;
+  if (Math.abs(n) >= 100000000) return `${s}원 (${shortNum(n / 100000000)}억 원)`;
+  if (Math.abs(n) >= 10000) return `${s}원 (${shortNum(n / 10000)}만 원)`;
+  return `${s}원`;
 }

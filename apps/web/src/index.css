@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+/* MarketView design tokens (Toss-style), plus darker "ink" tones for text on tinted chips */
+@theme {
+  --color-brand: #3182f6;
+  --color-brand-press: #1b64da;
+  --color-brand-bg: #e8f3ff;
+  --color-g50: #f9fafb;
+  --color-g100: #f2f4f6;
+  --color-g200: #e5e8eb;
+  --color-g300: #d1d6db;
+  --color-g400: #b0b8c1;
+  --color-g500: #8b95a1;
+  --color-g600: #6b7684;
+  --color-g700: #4e5968;
+  --color-g800: #333d4b;
+  --color-g900: #191f28;
+  --color-positive: #00b894;
+  --color-positive-bg: #e5f8f3;
+  --color-positive-ink: #00806a;
+  --color-warning: #e5950c;
+  --color-warning-bg: #fff6e5;
+  --color-warning-ink: #a35f00;
+  --color-negative: #f0483e;
+  --color-negative-bg: #ffecea;
+  --color-negative-ink: #d0342b;
+  --color-decision-bg: #eaf2ff;
+  --color-violet: #8b5cf6;
+  --color-pink: #ec4899;
+  --color-example: #7a6a1e;
+  --color-example-bg: #fbf3d6;
+  --color-example-border: #f0e2a8;
+  --font-sans: 'Pretendard Variable', Pretendard, system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --radius-card: 16px;
+}
+
+:root { color-scheme: light; }
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-g800);
+  background: var(--color-g50);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+summary { list-style: none; }
+summary::-webkit-details-marker { display: none; }
+mark { background: #fff0a6; color: inherit; border-radius: 3px; padding: 0 1px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

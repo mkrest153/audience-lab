@@ -40,8 +40,15 @@ def short_id(i):
     return i[:8] if i else "없음"
 
 
+def _short(x):
+    return int(x) if float(x).is_integer() else f"{x:.1f}".rstrip("0").rstrip(".")
+
+
 def won(n):
+    """1,250,000,000원 (12.5억 원) · 500,000원 (50만 원) · 9,000원"""
     s = f"{n:,}"
-    eok = n / 100000000
-    e = int(eok) if float(eok).is_integer() else f"{eok:.1f}".rstrip("0").rstrip(".")
-    return f"{s}원 ({e}억 원)"
+    if abs(n) >= 100000000:
+        return f"{s}원 ({_short(n / 100000000)}억 원)"
+    if abs(n) >= 10000:
+        return f"{s}원 ({_short(n / 10000)}만 원)"
+    return f"{s}원"

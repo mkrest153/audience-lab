@@ -16,7 +16,7 @@
 ## 구조
 
 ```
-apps/web/          React 화면 (esbuild로 dist/ 생성)
+apps/web/          화면: React 19 + Vite + Tailwind CSS v4, 글꼴은 Pretendard(OFL)를 함께 배포 (vite build로 dist/ 생성)
 services/core/     FastAPI 서비스
   app/engine/      검토 엔진: 근거 묶음, 초안 대조, 과제, 재검토, 비교, 보고서
   app/providers/   근거 공급자: fixture(시연 청람시 자료), openai(실제 공개 자료 검색과 판정)
@@ -47,8 +47,9 @@ render.yaml        Render Blueprint
 ## 로컬 실행
 
 ```bash
-# 웹 화면
+# 웹 화면 (Node 20.19 이상)
 cd apps/web && npm ci && npm run build
+# 화면만 고치며 볼 때: 서비스를 8765 포트로 띄운 뒤 npm run dev (/api는 8765로 넘김)
 
 # 서비스
 cd services/core

@@ -1,7 +1,7 @@
 // Reading and writing through the HTTP transport: remembers every ID the
 // browser has been given, keeps a status watcher on running jobs, and gives
 // forms one idempotency key per intent.
-/* global React */
+import { useSyncExternalStore, useReducer, useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { app, learn, bump, toast, FAST } from './store.js';
 import { send, NetError, methodOf } from './http.js';
 
@@ -10,12 +10,12 @@ export const ACTIVE = new Set(['QUEUED', 'RUNNING']);
 // Resources the browser keeps a copy of by ID. The first five are jobs with a
 // status to follow; Briefs and comparisons are fixed once made and read once.
 export const JOB = {
-  execution: { op: 'getRealityExecution', param: 'execution_id', label: '근거 실행', job: true },
+  execution: { op: 'getRealityExecution', param: 'execution_id', label: '근거 수집', job: true },
   review: { op: 'getDraftReview', param: 'review_id', label: '초안 검토', job: true },
   reassessment: { op: 'getReassessment', param: 'reassessment_id', label: '재검토', job: true },
   search: { op: 'getResearchSearch', param: 'search_id', label: '공개 자료 검색', job: true },
   export: { op: 'getEditorialExport', param: 'export_id', label: '보고서 파일', job: true },
-  brief: { op: 'getEditorialBrief', param: 'brief_id', label: 'Brief', job: false },
+  brief: { op: 'getEditorialBrief', param: 'brief_id', label: '기획 요약', job: false },
   delta: { op: 'getReviewDelta', param: 'delta_id', label: '검토 비교', job: false },
 };
 const JOB_BY_OP = Object.fromEntries(Object.entries(JOB).map(([kind, j]) => [j.op, kind]));
@@ -26,8 +26,22 @@ export function newKey() {
   return typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `key-${Date.now()}-${keySeq}-${Math.random().toString(36).slice(2)}`;
 }
 
+// Jobs started in this browser are announced when they end, however the end
+// is first seen (the watcher, or a section reading the result). A fast job can
+// end before the watcher's first look.
+const announce = new Set();
+const announced = new Set();
+function finishedToast(kind, caseId, d) {
+  announced.add(d.id);
+  toast(label(kind, d.status), { label: '결과 보기', route: resultRoute(kind, caseId, d) }, d.status === 'FAILED' || d.status === 'BLOCKED' ? 'bad' : 'ok');
+}
 function noteJob(kind, caseId, d) {
   app.set((s) => ({ jobs: { ...s.jobs, [d.id]: { kind, caseId, data: d, checkedAt: Date.now() } } }));
+  if (announce.has(d.id) && !ACTIVE.has(d.status)) {
+    announce.delete(d.id);
+    announced.add(d.id);      // the watcher's own round must not announce it again
+    setTimeout(() => { bump(); finishedToast(kind, caseId, d); }, 0);
+  }
 }
 function trackJob(kind, caseId, id) {
   app.set((s) => (s.jobs[id] ? null : { jobs: { ...s.jobs, [id]: { kind, caseId, data: null, checkedAt: null } } }));
@@ -53,10 +67,10 @@ function absorb(op, params, body, res) {
       break;
     }
     case 'createRealityExecution':
-      learn(cid, { execution: d.execution_id, corr: { [d.execution_id]: corr } }); trackJob('execution', cid, d.execution_id); break;
+      learn(cid, { execution: d.execution_id, corr: { [d.execution_id]: corr } }); announce.add(d.execution_id); trackJob('execution', cid, d.execution_id); break;
     case 'getRealityExecution': learn(cid, { execution: d.id, pack: d.result_pack_id }); break;
     case 'createDraftReview':
-      learn(cid, { review: d.review_id, corr: { [d.review_id]: corr } }); trackJob('review', cid, d.review_id); break;
+      learn(cid, { review: d.review_id, corr: { [d.review_id]: corr } }); announce.add(d.review_id); trackJob('review', cid, d.review_id); break;
     case 'getDraftReview': learn(cid, { review: d.id, pack: d.reality_pack_id }); break;
     case 'createEditorialBrief':
       learn(cid, { brief: d.brief.id, pack: d.brief.reality_pack_id, briefByPack: { [d.brief.reality_pack_id]: d.brief.id }, corr: { [d.brief.id]: corr } }); break;
@@ -66,14 +80,14 @@ function absorb(op, params, body, res) {
       break;
     }
     case 'createReassessment':
-      learn(cid, { reassessment: d.resource_id, corr: { [d.resource_id]: corr } }); trackJob('reassessment', cid, d.resource_id); break;
+      learn(cid, { reassessment: d.resource_id, corr: { [d.resource_id]: corr } }); announce.add(d.resource_id); trackJob('reassessment', cid, d.resource_id); break;
     case 'getReassessment': learn(cid, { reassessment: d.id, review: d.result_review_id, delta: d.delta_id, pack: d.result_pack_id }); break;
     case 'getReviewDelta': learn(cid, { delta: d.id, review: [d.before_review_id, d.after_review_id] }); break;
     case 'createResearchSearch':
-      learn(cid, { search: d.search_id, corr: { [d.search_id]: corr } }); trackJob('search', cid, d.search_id); break;
+      learn(cid, { search: d.search_id, corr: { [d.search_id]: corr } }); announce.add(d.search_id); trackJob('search', cid, d.search_id); break;
     case 'getResearchSearch': learn(cid, { submission: d.new_submission_ids }); break;
     case 'createEditorialExport':
-      learn(cid, { export: d.export_id, corr: { [d.export_id]: corr } }); trackJob('export', cid, d.export_id); break;
+      learn(cid, { export: d.export_id, corr: { [d.export_id]: corr } }); announce.add(d.export_id); trackJob('export', cid, d.export_id); break;
     case 'createEvidenceSubmission': learn(cid, { submission: d.submission.id }); break;
     case 'createReportingResult': learn(cid, { result: d.result.id }); break;
     case 'listReportingTasks':
@@ -98,14 +112,14 @@ export const clearCache = () => cache.clear();
 // the token or the parameters change. A transport failure keeps the last
 // good answer and reports when it was last confirmed.
 export function useQuery(op, params, enabled = true) {
-  const rev = React.useSyncExternalStore(app.subscribe, () => app.get().rev);
-  const token = React.useSyncExternalStore(app.subscribe, () => app.get().token);
-  const boot = React.useSyncExternalStore(app.subscribe, () => app.get().boot);
+  const rev = useSyncExternalStore(app.subscribe, () => app.get().rev);
+  const token = useSyncExternalStore(app.subscribe, () => app.get().token);
+  const boot = useSyncExternalStore(app.subscribe, () => app.get().boot);
   const pkey = JSON.stringify(params || {});
   const ckey = `${boot}|${token}|${op}|${pkey}`;
-  const [, force] = React.useReducer((x) => x + 1, 0);
-  const [manual, setManual] = React.useState(0);
-  React.useEffect(() => {
+  const [, force] = useReducer((x) => x + 1, 0);
+  const [manual, setManual] = useState(0);
+  useEffect(() => {
     if (!enabled) return undefined;
     let live = true;
     const prev = cache.get(ckey) || {};
@@ -132,14 +146,14 @@ export function useQuery(op, params, enabled = true) {
 // Reads several resources of one kind by ID. Returns the answers known so
 // far, in the order of the IDs.
 export function useMany(op, base, param, ids) {
-  const rev = React.useSyncExternalStore(app.subscribe, () => app.get().rev);
-  const token = React.useSyncExternalStore(app.subscribe, () => app.get().token);
-  const boot = React.useSyncExternalStore(app.subscribe, () => app.get().boot);
-  const [, force] = React.useReducer((x) => x + 1, 0);
+  const rev = useSyncExternalStore(app.subscribe, () => app.get().rev);
+  const token = useSyncExternalStore(app.subscribe, () => app.get().token);
+  const boot = useSyncExternalStore(app.subscribe, () => app.get().boot);
+  const [, force] = useReducer((x) => x + 1, 0);
   const bkey = JSON.stringify(base);
   const ck = (id) => `${boot}|${token}|${op}|${JSON.stringify({ ...JSON.parse(bkey), [param]: id })}`;
   const idsKey = ids.join(',');
-  React.useEffect(() => {
+  useEffect(() => {
     let live = true;
     ids.forEach((id) => {
       const key = ck(id);
@@ -156,8 +170,8 @@ export function useMany(op, base, param, ids) {
 // Loads every result ID of one case the server knows (another browser, an
 // earlier visit), so the screens can follow them like the ones made here.
 export function useLedger(caseId) {
-  const boot = React.useSyncExternalStore(app.subscribe, () => app.get().boot);
-  React.useEffect(() => {
+  const boot = useSyncExternalStore(app.subscribe, () => app.get().boot);
+  useEffect(() => {
     if (!caseId) return;
     api('getCaseLedger', { params: { case_id: caseId } }).then(() => kick(), () => {});
   }, [caseId, boot]);
@@ -173,15 +187,15 @@ function label(kind, status) {
   const word = { COMPLETED: '끝났습니다', PARTIAL: '부분 결과로 끝났습니다', FAILED: '실패했습니다', BLOCKED: '차단되었습니다' }[status] || '끝났습니다';
   return `${JOB[kind].label}: ${word}`;
 }
-// where a finished job's actual result lives
+// where a finished job's actual result lives on the case page
 export function resultRoute(kind, caseId, d) {
   const done = d.status === 'COMPLETED' || d.status === 'PARTIAL';
-  if (kind === 'review' && done) return { caseId, tab: 'review', sub: 'sheet', view: { kind: 'review', id: d.id } };
-  if (kind === 'reassessment' && d.delta_id) return { caseId, tab: 'compare', deltaId: d.delta_id };
-  // these two results sit below a form on their screen, so the link names them
-  if (kind === 'search') return { caseId, tab: 'changes', searchId: d.id, reveal: { kind: 'search', id: d.id } };
-  if (kind === 'export') return { caseId, tab: 'export', reveal: { kind: 'export', id: d.id } };
-  return { caseId, tab: 'status' };
+  if (kind === 'review') return done ? { caseId, to: 'sec-review', view: { kind: 'review', id: d.id }, sub: 'sheet' } : { caseId, to: 'sec-review' };
+  if (kind === 'reassessment') return d.delta_id ? { caseId, to: 'sec-compare', deltaId: d.delta_id } : { caseId, to: 'sec-reassess' };
+  if (kind === 'search') return { caseId, to: 'sec-search', searchId: d.id, reveal: { kind: 'search', id: d.id } };
+  if (kind === 'export') return { caseId, to: 'sec-report', reveal: { kind: 'export', id: d.id } };
+  if (kind === 'brief') return { caseId, to: 'sec-review', view: { kind: 'brief', id: d.id }, sub: 'brief' };
+  return { caseId, to: 'sec-evidence' };
 }
 
 export function stopWatcher() { stopped = true; clearTimeout(timer); }
@@ -238,7 +252,7 @@ export async function pollNow(manual) {
   }
   if (finished.length) {
     bump();
-    finished.forEach((f) => toast(label(f.kind, f.data.status), { label: '결과 열기', route: resultRoute(f.kind, f.caseId, f.data) }));
+    finished.filter((f) => !announced.has(f.id)).forEach((f) => finishedToast(f.kind, f.caseId, f.data));
   }
   clearTimeout(timer);
   if (!stopped) timer = setTimeout(pollNow, interval);
@@ -258,8 +272,8 @@ export async function refreshJob(kind, caseId, id) {
 // One idempotency key per intent: the same payload retried after a lost
 // response keeps its key; an answered request or a changed payload gets a new one.
 export function useIdem() {
-  const ref = React.useRef({ sig: null, key: null });
-  return React.useMemo(() => ({
+  const ref = useRef({ sig: null, key: null });
+  return useMemo(() => ({
     keyFor(payload) {
       const sig = JSON.stringify(payload);
       if (ref.current.sig !== sig || !ref.current.key) ref.current = { sig, key: newKey() };
@@ -280,8 +294,8 @@ export function fieldErrors(error) {
 // the idempotency key that survives a lost response.
 export function useAction() {
   const idem = useIdem();
-  const [st, setSt] = React.useState({ busy: false, error: null, status: null, net: null, reused: false, ok: false });
-  const run = React.useCallback(async (op, { params, body, ifMatch, onOk } = {}) => {
+  const [st, setSt] = useState({ busy: false, error: null, status: null, net: null, reused: false, ok: false });
+  const run = useCallback(async (op, { params, body, ifMatch, onOk } = {}) => {
     setSt({ busy: true, error: null, status: null, net: null, reused: false, ok: false });
     try {
       const write = methodOf(op) !== 'GET';
@@ -300,6 +314,6 @@ export function useAction() {
       return null;
     }
   }, [idem]);
-  const reset = React.useCallback(() => setSt({ busy: false, error: null, status: null, net: null, reused: false, ok: false }), []);
+  const reset = useCallback(() => setSt({ busy: false, error: null, status: null, net: null, reused: false, ok: false }), []);
   return { ...st, run, reset };
 }

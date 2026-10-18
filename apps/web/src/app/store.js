@@ -1,7 +1,7 @@
 // One small external store for the whole page. React reads it through
 // useSyncExternalStore; selectors must return an existing reference or a
 // primitive so an unchanged store never causes a render.
-/* global React */
+import { useSyncExternalStore, useMemo } from 'react';
 
 export function createStore(initial) {
   let state = initial;
@@ -19,22 +19,47 @@ export function createStore(initial) {
 }
 
 export function useStore(store, selector) {
-  return React.useSyncExternalStore(store.subscribe, () => selector(store.get()));
+  return useSyncExternalStore(store.subscribe, () => selector(store.get()));
 }
 
 export const FAST = typeof window !== 'undefined' && !!window.__AL_FAST__;
+
+// One case is one page read top to bottom. The route names the case, which
+// result each section shows, and `to`, a section to bring into view.
+export const EMPTY_ROUTE = {
+  caseId: null,         // null: list of cases, 'new': a new case, or a case id
+  view: null,           // { kind: 'review' | 'brief', id } shown in the review section
+  sub: 'sheet',         // tab inside the review section
+  taskId: null,         // task open in the task and reassessment sections
+  creatingTask: false,
+  taskOrigin: null,     // { kind, id } the new task points at
+  taskJustMade: null,
+  deltaId: null,        // comparison shown in the reassessment section
+  searchId: null,       // public search shown in its card
+  exportInput: null,    // { kind, id } preselected in the report section
+  intakeOpen: false,    // the input form of an existing case is open
+  reveal: null,         // one result to bring into view after a step
+  to: null,             // { id, seq }: section to scroll to
+};
+const emptyDraft = () => ({ assertion_ids: [], conflict_ids: [], unknown_ids: [] });
 
 const TOKEN_KEY = 'audience-lab.token';
 function readToken() {
   try { return window.localStorage.getItem(TOKEN_KEY) || null; } catch (e) { return null; }
 }
-export function saveToken(token) {
+// A new sign-in starts clean: nothing followed or announced for the previous
+// account carries over. After an expired sign-in the person may keep the case
+// they were reading.
+export function saveToken(token, { keepRoute = false } = {}) {
   try {
     if (token) window.localStorage.setItem(TOKEN_KEY, token);
     else window.localStorage.removeItem(TOKEN_KEY);
   } catch (e) { /* private window: the session lasts for this tab */ }
-  // a new sign-in starts clean: nothing followed or announced for the previous account carries over
-  app.set({ token, ws: null, ledger: {}, jobs: {}, toasts: [], panel: null, boot: app.get().boot + 1 });
+  app.set((s) => ({
+    token, ws: null, ledger: {}, jobs: {}, toasts: [], panel: null, modal: null, boot: s.boot + 1,
+    autoOpen: true, taskDraft: emptyDraft(),
+    ...(keepRoute ? {} : { page: null, route: { ...EMPTY_ROUTE } }),
+  }));
 }
 
 const emptyLedger = () => ({
@@ -50,15 +75,17 @@ export const app = createStore({
   token: typeof window !== 'undefined' ? readToken() : null,
   ws: null,                     // workspace of the signed-in account
   authLost: 0,                  // counts 401 answers so the shell can ask to sign in again
-  page: null,                   // 'members' | 'account' | null
-  route: { caseId: null, tab: 'review', sub: 'sheet', view: null, taskId: null, deltaId: null, searchId: null, creatingTask: false },
+  page: null,                   // 'cases' | 'members' | null
+  modal: null,                  // 'account' | null
+  autoOpen: true,               // open the newest case once after signing in
+  route: { ...EMPTY_ROUTE },
   panel: null,                  // source panel context
   ledger: {},                   // case id -> ledger
   jobs: {},                     // resource id -> { kind, caseId, data, checkedAt, failed }
   watch: { interval: FAST ? 150 : 2500, lastAt: null, failing: 0, paused: false },
   rev: 0,                       // bump to make every screen read again
   toasts: [],
-  taskDraft: { assertion_ids: [], conflict_ids: [], unknown_ids: [] },
+  taskDraft: emptyDraft(),
   clockOffset: 0,               // server time minus this browser's time, from the Date header
   clockTick: 0,
 });
@@ -90,38 +117,42 @@ export function learn(caseId, patch) {
 export const bump = () => app.set((s) => ({ rev: s.rev + 1 }));
 
 let toastSeq = 0;
-export function toast(text, action) {
+export function toast(text, action, tone = 'info') {
   const id = ++toastSeq;
-  app.set((s) => ({ toasts: [...s.toasts.slice(-2), { id, text, action }] }));
+  app.set((s) => ({ toasts: [...s.toasts.slice(-2), { id, text, action, tone }] }));
   setTimeout(() => app.set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })), FAST ? 1500 : 9000);
 }
 export const dismissToast = (id) => app.set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) }));
 
-// route.reveal names what the destination screen should bring into view:
-// { kind: 'screen' } for the screen itself, { kind, id } for one result on it,
-// with soft: true when the person stays where they are and only needs to see
-// the new row. It lasts for one navigation; any later step drops it.
+// ---------------------------------------------------------------- moving around
+// route.reveal names what the destination should bring into view: { kind, id }
+// for one result, with soft: true when the person stays where they are and only
+// needs to see the new row. It lasts for one step; any later step drops it.
+let jumpSeq = 0;
 export function go(patch) {
-  // leaving a screen closes the source panel that belonged to it
-  app.set((s) => ({ route: { ...s.route, reveal: null, ...patch }, ...(patch.tab && patch.tab !== s.route.tab ? { panel: null } : {}) }));
+  const { to, ...rest } = patch;
+  app.set((s) => ({ route: { ...s.route, reveal: null, ...rest, ...(to ? { to: { id: to, seq: ++jumpSeq } } : {}) } }));
 }
-export function openCase(caseId, tab = 'review') {
-  app.set({ page: null, route: { caseId, tab, sub: 'sheet', view: null, taskId: null, deltaId: null, searchId: null, creatingTask: false }, panel: null, taskDraft: { assertion_ids: [], conflict_ids: [], unknown_ids: [] } });
+export function openCase(caseId, to) {
+  app.set({
+    page: null, panel: null, taskDraft: emptyDraft(), autoOpen: false,
+    route: { ...EMPTY_ROUTE, caseId, ...(to ? { to: { id: to, seq: ++jumpSeq } } : {}) },
+  });
+  if (!to && typeof window !== 'undefined') window.scrollTo(0, 0);
 }
 export function openPage(page) {
-  app.set((s) => ({ page, panel: null, route: { ...s.route, caseId: null } }));
+  app.set((s) => ({ page, panel: null, autoOpen: false, route: { ...s.route, caseId: null } }));
+  if (typeof window !== 'undefined') window.scrollTo(0, 0);
 }
+export const openModal = (modal) => app.set({ modal });
 
-// Follow a link to a result, switching the open case when needed. The
-// destination is always brought into view: the result itself when the link
-// names one, otherwise the top of its screen.
+// Follow a link to a result (a finished job's toast), switching the open case
+// when needed.
 export function navigate(patch) {
+  const { caseId, ...rest } = patch;
   const s = app.get();
-  if (patch.caseId && patch.caseId !== s.route.caseId) openCase(patch.caseId, patch.tab || 'review');
-  app.set((st) => ({
-    route: { ...st.route, ...patch, reveal: patch.reveal || { kind: 'screen' } },
-    ...(patch.tab && patch.tab !== st.route.tab ? { panel: null } : {}),
-  }));
+  if (caseId && (caseId !== s.route.caseId || s.page)) openCase(caseId);
+  go(rest);
 }
 
 // The source panel remembers which control opened it so focus can go back.
@@ -129,7 +160,7 @@ let opener = null;
 let panelSeq = 0;
 export function openPanel(ctx) {
   const el = typeof document !== 'undefined' ? document.activeElement : null;
-  if (!el || !el.closest || !el.closest('.panel')) opener = el;   // the control outside the panel that asked for it
+  if (!el || !el.closest || !el.closest('[data-panel]')) opener = el;   // the control outside the panel that asked for it
   panelSeq += 1;
   app.set({ panel: { ...ctx, token: panelSeq } });
 }
@@ -138,7 +169,7 @@ export function closePanel() {
   app.set({ panel: null });
   const el = opener;
   opener = null;
-  if (el && el.focus) setTimeout(() => { if (document.contains(el)) el.focus(); }, 0);
+  if (el && el.focus) setTimeout(() => { if (document.contains(el)) el.focus({ preventScroll: true }); }, 0);
 }
 
 // ---------------------------------------------------------------- time
@@ -153,11 +184,11 @@ export function syncClock(dateHeader) {
   if (Math.abs(offset - app.get().clockOffset) > 1500) app.set({ clockOffset: offset });
 }
 export const serverNow = () => Date.now() + app.get().clockOffset;
-const isoNow = (tick) => new Date(Math.floor((Date.now() + app.get().clockOffset) / 1000) * 1000 + 0 * tick).toISOString().replace(/\.\d{3}Z$/, 'Z');
+const isoNow = () => new Date(Math.floor((Date.now() + app.get().clockOffset) / 1000) * 1000).toISOString().replace(/\.\d{3}Z$/, 'Z');
 if (typeof window !== 'undefined') setInterval(() => app.set((s) => ({ clockTick: s.clockTick + 1 })), 15000);
 export const useNow = () => {
   const tick = useStore(app, (s) => s.clockTick);
   const offset = useStore(app, (s) => s.clockOffset);
-  return React.useMemo(() => isoNow(tick), [tick, offset]);
+  return useMemo(() => isoNow(), [tick, offset]);
 };
-export const nowIso = () => isoNow(0);
+export const nowIso = () => isoNow();
