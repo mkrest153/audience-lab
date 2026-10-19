@@ -4,8 +4,8 @@
 초안 문장마다 근거를 붙이고, 출처끼리 다른 설명(상충)과 아직 모르는 것(공백)을 취재 과제로 넘기고,
 새로 확보한 자료로 다시 검토해 무엇이 왜 바뀌었는지 보여 줍니다. 게재와 편성 판단은 사람이 합니다.
 
-- 서비스: Render 한 서비스 (FastAPI + SQLite, 웹 화면을 함께 서빙). 지금은 무료 플랜이라 다시 시작하면 기록이 지워집니다 (`OPERATIONS.md`)
-- 소개 홈페이지: `homepage/` (정적 페이지, Vercel)
+- 서비스: https://audience-lab.onrender.com — Render 한 서비스 (FastAPI + SQLite, 웹 화면을 함께 서빙). 지금은 무료 플랜이라 다시 시작하면 기록이 지워집니다 (`OPERATIONS.md`)
+- 소개 홈페이지: https://audience-lab-beta.vercel.app — `homepage/` (정적 페이지, Vercel 프로젝트 audience-lab, 루트 폴더 `homepage`, main에 올리면 자동 배포)
 
 ## 하지 않는 것
 
